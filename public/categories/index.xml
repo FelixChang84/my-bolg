@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 张佳轩博客</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>http://localhost:1313/my-bolg/categories/</link>
     <description>Recent content in Categories on 张佳轩博客</description>
     <generator>Hugo</generator>
     <language>zh</language>
     <lastBuildDate>Thu, 22 Jan 2026 10:00:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/my-bolg/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>技术</title>
-      <link>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF/</link>
+      <link>http://localhost:1313/my-bolg/categories/%E6%8A%80%E6%9C%AF/</link>
       <pubDate>Thu, 22 Jan 2026 10:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF/</guid>
+      <guid>http://localhost:1313/my-bolg/categories/%E6%8A%80%E6%9C%AF/</guid>
       <description></description>
     </item>
   </channel>

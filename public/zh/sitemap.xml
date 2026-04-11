@@ -7,7 +7,7 @@
     <loc>http://localhost:1313/my-bolg/projects/</loc>
   </url><url>
     <loc>http://localhost:1313/my-bolg/categories/</loc>
-    <lastmod>2026-01-22T10:00:00+08:00</lastmod>
+    <lastmod>2026-04-11T20:30:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -19,14 +19,11 @@
                 href="http://localhost:1313/my-bolg/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/my-bolg/tags/hugo/</loc>
-    <lastmod>2026-01-22T10:00:00+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/my-bolg/posts/</loc>
-    <lastmod>2026-01-22T10:00:00+08:00</lastmod>
+    <lastmod>2026-04-11T20:30:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/my-bolg/tags/</loc>
-    <lastmod>2026-01-22T10:00:00+08:00</lastmod>
+    <lastmod>2026-04-11T20:30:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -38,20 +35,17 @@
                 href="http://localhost:1313/my-bolg/tags/"
                 />
   </url><url>
-    <loc>http://localhost:1313/my-bolg/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2026-01-22T10:00:00+08:00</lastmod>
+    <loc>http://localhost:1313/my-bolg/tags/%E6%B3%95%E5%BE%8B/</loc>
+    <lastmod>2026-04-11T20:30:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/my-bolg/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2026-01-22T10:00:00+08:00</lastmod>
+    <loc>http://localhost:1313/my-bolg/tags/%E5%8A%B3%E5%8A%A8%E6%B3%95/</loc>
+    <lastmod>2026-04-11T20:30:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/my-bolg/posts/%E4%BD%A0%E5%A5%BD%E4%B8%96%E7%95%8C/</loc>
-    <lastmod>2026-01-22T10:00:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/my-bolg/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</loc>
-    <lastmod>2026-01-22T10:00:00+08:00</lastmod>
+    <loc>http://localhost:1313/my-bolg/tags/%E7%BB%B4%E6%9D%83/</loc>
+    <lastmod>2026-04-11T20:30:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/my-bolg/</loc>
-    <lastmod>2026-01-22T10:00:00+08:00</lastmod>
+    <lastmod>2026-04-11T20:30:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -62,6 +56,30 @@
                 hreflang="zh"
                 href="http://localhost:1313/my-bolg/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/my-bolg/categories/%E8%81%8C%E5%9C%BA/</loc>
+    <lastmod>2026-04-11T20:30:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-bolg/tags/%E8%81%8C%E5%9C%BA/</loc>
+    <lastmod>2026-04-11T20:30:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-bolg/posts/%E8%81%8C%E5%9C%BA%E7%BB%B4%E6%9D%83%E6%8C%87%E5%8D%97/</loc>
+    <lastmod>2026-04-11T20:30:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-bolg/tags/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95/</loc>
+    <lastmod>2026-04-11T20:30:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-bolg/tags/hugo/</loc>
+    <lastmod>2026-01-22T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-bolg/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2026-01-22T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-bolg/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2026-01-22T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-bolg/posts/%E4%BD%A0%E5%A5%BD%E4%B8%96%E7%95%8C/</loc>
+    <lastmod>2026-01-22T10:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/my-bolg/authors/</loc>
     <xhtml:link

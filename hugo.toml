@@ -60,13 +60,13 @@ url = "https://github.com/FelixChang84/"
 name = "Bilibili"
 icon = "fa-brands fa-bilibili fa-2x"
 weight = 7
-url = "https://space.bilibili.com/你的UID/"
+url = "https://space.bilibili.com/246517702/"
 
 [[params.social]]
 name = "抖音"
 icon = "fa-brands fa-tiktok fa-2x"
 weight = 8
-url = "https://www.douyin.com/user/你的抖音ID"
+url = "https://v.douyin.com/cju9jQ41q3w/"
 
 [[params.social]]
 name = "RSS"

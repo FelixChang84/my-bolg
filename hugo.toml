@@ -1,0 +1,129 @@
+# ================= 基础站点配置 =================
+baseURL = "https://FelixChang84.github.io/my-bolg/"  # ✅ 已设置正确
+title = "张佳轩博客"
+theme = "hugo-coder"
+languageCode = "zh"
+defaultContentLanguage = "zh"
+enableEmoji = true
+
+# ================= 分页设置 =================
+[pagination]
+pagerSize = 6
+
+# ================= 评论系统 =================
+[services]
+[services.disqus]
+shortname = ""
+
+# ================= 内容渲染引擎 =================
+[markup]
+[markup.highlight]
+noClasses = false
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+# ================= 全局参数 =================
+[params]
+author = "JoFuKi"
+license = '[CC BY-SA-4.0](http://creativecommons.org/licenses/by-sa/4.0/)'
+description = "技术分享与个人项目记录"
+keywords = "blog, developer, python, hugo"
+info = ["Full Stack Developer", "Python Enthusiast"]
+avatarURL = "images/avatar.jpg"
+dateFormat = "2006-01-02"
+since = 2026
+rtl = false
+colorScheme = "auto"
+hideColorSchemeToggle = false
+maxSeeAlsoItems = 5
+customCSS = []
+customSCSS = []
+customJS = []
+customRemoteJS = []
+
+# ================= 分类法 =================
+[taxonomies]
+category = "categories"
+series = "series"
+tag = "tags"
+author = "authors"
+
+# ================= 社交链接 =================
+[[params.social]]
+name = "Github"
+icon = "fa-brands fa-github fa-2x"
+weight = 1
+url = "https://github.com/FelixChang84/"
+
+[[params.social]]
+name = "Bilibili"
+icon = "fa-brands fa-bilibili fa-2x"
+weight = 7
+url = "https://space.bilibili.com/你的UID/"
+
+[[params.social]]
+name = "抖音"
+icon = "fa-brands fa-tiktok fa-2x"
+weight = 8
+url = "https://www.douyin.com/user/你的抖音ID"
+
+[[params.social]]
+name = "RSS"
+icon = "fa-solid fa-rss fa-2x"
+weight = 2
+url = "/index.xml"
+rel = "alternate"
+type = "application/rss+xml"
+
+# ================= 中文语言配置 =================
+[languages.zh]
+languageName = "中文"
+weight = 1
+
+[languages.zh.params]
+author = "张佳轩博客"
+description = "张佳轩博客"
+keywords = "初中生,游戏,三角洲"
+info = ["关注我", "下方链接"]
+
+[[languages.zh.menu.main]]
+name = "关于"
+weight = 1
+url = "about/"
+
+[[languages.zh.menu.main]]
+name = "文章"
+weight = 2
+url = "posts/"
+
+[[languages.zh.menu.main]]
+name = "项目"
+weight = 3
+url = "projects/"
+
+# ================= 英文语言配置 =================
+[languages.en]
+languageName = "English"
+weight = 2
+
+[languages.en.params]
+author = "Jaxon-Blog"
+description = "Jaxon-Blog"
+keywords = "blog,developer,personal"
+info = ["Follow", "The link below"]
+
+[[languages.en.menu.main]]
+name = "About"
+weight = 1
+url = "about/"
+
+[[languages.en.menu.main]]
+name = "Blog"
+weight = 2
+url = "posts/"
+
+[[languages.en.menu.main]]
+name = "Projects"
+weight = 3
+url = "projects/"

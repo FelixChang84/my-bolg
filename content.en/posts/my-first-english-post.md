@@ -1,0 +1,16 @@
+---
+title: "我的第一篇文章"
+date: 2026-01-22T10:00:00+08:00
+draft: false          # 🎯 发布前改成 false
+tags: ["hugo", "博客"]
+categories: ["技术"]
+---
+
+## 你好，世界！👋
+
+这是我的第一篇 Hugo 博客文章。
+张佳轩 2026-04-11
+
+### 代码示例
+```python
+print("Hello, Hugo!")

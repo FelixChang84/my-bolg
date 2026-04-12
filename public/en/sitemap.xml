@@ -2,64 +2,64 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://felixchang84.github.io/my-bolg/en/authors/</loc>
+    <loc>http://localhost:8502/my-bolg/en/authors/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://felixchang84.github.io/my-bolg/authors/"
+                href="http://localhost:8502/my-bolg/authors/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://felixchang84.github.io/my-bolg/en/authors/"
+                href="http://localhost:8502/my-bolg/en/authors/"
                 />
   </url><url>
-    <loc>https://felixchang84.github.io/my-bolg/en/categories/</loc>
+    <loc>http://localhost:8502/my-bolg/en/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://felixchang84.github.io/my-bolg/categories/"
+                href="http://localhost:8502/my-bolg/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://felixchang84.github.io/my-bolg/en/categories/"
+                href="http://localhost:8502/my-bolg/en/categories/"
                 />
   </url><url>
-    <loc>https://felixchang84.github.io/my-bolg/en/series/</loc>
+    <loc>http://localhost:8502/my-bolg/en/series/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://felixchang84.github.io/my-bolg/series/"
+                href="http://localhost:8502/my-bolg/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://felixchang84.github.io/my-bolg/en/series/"
+                href="http://localhost:8502/my-bolg/en/series/"
                 />
   </url><url>
-    <loc>https://felixchang84.github.io/my-bolg/en/tags/</loc>
+    <loc>http://localhost:8502/my-bolg/en/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://felixchang84.github.io/my-bolg/tags/"
+                href="http://localhost:8502/my-bolg/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://felixchang84.github.io/my-bolg/en/tags/"
+                href="http://localhost:8502/my-bolg/en/tags/"
                 />
   </url><url>
-    <loc>https://felixchang84.github.io/my-bolg/en/</loc>
+    <loc>http://localhost:8502/my-bolg/en/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://felixchang84.github.io/my-bolg/"
+                href="http://localhost:8502/my-bolg/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://felixchang84.github.io/my-bolg/en/"
+                href="http://localhost:8502/my-bolg/en/"
                 />
   </url>
 </urlset>

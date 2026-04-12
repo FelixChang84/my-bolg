@@ -69,12 +69,10 @@ weight = 8
 url = "https://v.douyin.com/cju9jQ41q3w/"
 
 [[params.social]]
-name = "RSS"
-icon = "fa-solid fa-rss fa-2x"
+name = "微信"
+icon = "fa-brands fa-weixin fa-2x"
 weight = 2
-url = "/index.xml"
-rel = "alternate"
-type = "application/rss+xml"
+url = "/images/wechat-qr.png"
 
 # ================= 中文语言配置 =================
 [languages.zh]

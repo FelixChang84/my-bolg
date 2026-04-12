@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>关于我 on 张佳轩博客</title>
-    <link>http://localhost:8502/my-bolg/about/</link>
+    <link>http://localhost:11402/my-bolg/about/</link>
     <description>Recent content in 关于我 on 张佳轩博客</description>
     <generator>Hugo</generator>
     <language>zh</language>
-    <atom:link href="http://localhost:8502/my-bolg/about/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:11402/my-bolg/about/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

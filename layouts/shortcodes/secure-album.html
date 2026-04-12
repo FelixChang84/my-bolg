@@ -1,0 +1,215 @@
+{{ $hash := .Get "hash" }}
+{{ $folder := .Get "folder" | default "family" }}
+{{ $path := printf "images/%s" $folder }}
+{{ $images := readDir (printf "static/%s" $path) }}
+
+<div class="secure-album-wrapper" id="album-{{ .Ordinal }}">
+  <!-- 密码输入层 -->
+  <div class="album-lock-screen">
+    <div class="lock-icon">🔒</div>
+    <h3>私密相册</h3>
+    <p>请输入密码查看照片</p>
+    <input type="password" id="pwd-{{ .Ordinal }}" placeholder="输入密码" autocomplete="off" />
+    <button onclick="unlockAlbum({{ .Ordinal }}, '{{ $hash }}')">🔓 解锁查看</button>
+    <p id="error-{{ .Ordinal }}" class="error-msg" style="display:none;">❌ 密码错误</p>
+  </div>
+
+  <!-- 相册内容层（默认隐藏） -->
+  <div class="album-content" style="display:none;">
+    <div class="masonry-album">
+      {{ range $images }}
+        {{ if not .IsDir }}
+          {{ $ext := lower (path.Ext .Name) }}
+          {{ if or (eq $ext ".jpg") (eq $ext ".jpeg") (eq $ext ".png") (eq $ext ".gif") (eq $ext ".webp") (eq $ext ".JPG") (eq $ext ".JPEG") (eq $ext ".PNG") }}
+          <div class="masonry-item">
+            <img src="/{{ $path }}/{{ .Name }}" alt="{{ .Name }}" loading="lazy" />
+            <div class="photo-name">{{ .Name }}</div>
+          </div>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+<!-- 引入加密库 -->
+<script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
+<script>
+function unlockAlbum(id, correctHash) {
+  const pwd = document.getElementById('pwd-' + id).value;
+  if (!pwd) {
+    alert('请输入密码');
+    return;
+  }
+  
+  const inputHash = CryptoJS.SHA256(pwd).toString();
+  
+  if (inputHash === correctHash) {
+    document.querySelector('#album-' + id + ' .album-lock-screen').style.display = 'none';
+    document.querySelector('#album-' + id + ' .album-content').style.display = 'block';
+    window.scrollTo({ top: document.querySelector('#album-' + id + ' .album-content').offsetTop - 100, behavior: 'smooth' });
+  } else {
+    document.getElementById('error-' + id).style.display = 'block';
+    setTimeout(() => {
+      document.getElementById('error-' + id).style.display = 'none';
+    }, 2000);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const inputs = document.querySelectorAll('.album-lock-screen input');
+  inputs.forEach(input => {
+    input.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        this.nextElementSibling.click();
+      }
+    });
+  });
+});
+</script>
+
+<style>
+.secure-album-wrapper {
+  margin: 30px 0;
+}
+
+.album-lock-screen {
+  text-align: center;
+  padding: 60px 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.lock-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.album-lock-screen h3 {
+  margin: 10px 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.album-lock-screen p {
+  margin: 10px 0 20px;
+  opacity: 0.9;
+}
+
+.album-lock-screen input {
+  padding: 12px 16px;
+  font-size: 16px;
+  width: 280px;
+  max-width: 80%;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  margin-bottom: 15px;
+}
+
+.album-lock-screen input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.album-lock-screen button {
+  padding: 12px 30px;
+  font-size: 16px;
+  background: white;
+  color: #667eea;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
+.album-lock-screen button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.error-msg {
+  margin-top: 15px;
+  color: #ffeb3b;
+  font-weight: 500;
+}
+
+/* 瀑布流相册样式 */
+.masonry-album {
+  column-count: 3;
+  column-gap: 15px;
+  padding: 20px 0;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 15px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: #f8f9fa;
+}
+
+.masonry-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.masonry-item:hover img {
+  transform: scale(1.05);
+}
+
+.photo-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: white;
+  padding: 20px 10px 8px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  word-break: break-all;
+}
+
+.masonry-item:hover .photo-name {
+  opacity: 1;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .masonry-album {
+    column-count: 2;
+    column-gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .masonry-album {
+    column-count: 2;
+    column-gap: 10px;
+  }
+  .masonry-item {
+    margin-bottom: 10px;
+  }
+  .album-lock-screen input {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry-album {
+    column-count: 1;
+  }
+  .album-lock-screen {
+    padding: 40px 20px;
+  }
+}
+</style>

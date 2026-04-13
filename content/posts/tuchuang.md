@@ -63,4 +63,70 @@ description: "免费图片托管解决方案，Flickr/imgur 替代品。使用 C
 - 简单快捷部署
 - 可用于 Markdown 写作、博客配图等
 
+**打赏支持**（可选）
+
+感谢您的支持！
+
+<!-- 这里是样式代码，控制图片怎么显示 -->
+<style>
+  .hover-card {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #d63384; /* 文字颜色，你可以改成你喜欢的颜色 */
+    border-bottom: 1px dashed #d63384; /* 给文字加个虚线下划线，提示可以悬停 */
+    font-weight: bold;
+  }
+  .hover-card .card-img {
+    visibility: hidden;
+    width: 200px; /* 这里控制弹窗图片的宽度 */
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    border-radius: 8px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* 图片出现在文字上方 */
+    left: 50%;
+    margin-left: -100px; /* 居中修正（宽度的一半） */
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* 阴影效果 */
+  }
+  .hover-card .card-img img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+  }
+  /* 鼠标放上去时显示图片 */
+  .hover-card:hover .card-img {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>
+
+<!-- 这里是内容列表 -->
+<ul>
+  <li>
+    <span class="hover-card">
+      支付宝
+      <span class="card-img">
+        <!-- 注意：src 里的路径对应 static/images 目录 -->
+        <img src="/images/alipay.jpg" alt="支付宝收款码">
+      </span>
+    </span>
+  </li>
+  <li>
+    <span class="hover-card">
+      微信支付
+      <span class="card-img">
+        <!-- 注意：src 里的路径对应 static/images 目录 -->
+        <img src="/images/weixinpay.jpg" alt="微信收款码">
+      </span>
+    </span>
+  </li>
+</ul>
+
+
 ---

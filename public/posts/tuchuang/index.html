@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<head>
+<head><script src="/my-bolg/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my-bolg/livereload" data-no-instant defer></script>
   <title>
   Cloudflare Pages 搭建免费图床！享受 Telegram 的无限空间 · 张佳轩博客
 </title>
@@ -22,7 +22,7 @@
   <meta name="twitter:title" content="Cloudflare Pages 搭建免费图床！享受 Telegram 的无限空间">
   <meta name="twitter:description" content="免费图片托管解决方案，Flickr/imgur 替代品。使用 Cloudflare Pages 和 Telegraph。">
 
-<meta property="og:url" content="https://felixchang84.github.io/my-bolg/posts/tuchuang/">
+<meta property="og:url" content="http://localhost:1313/my-bolg/posts/tuchuang/">
   <meta property="og:site_name" content="张佳轩博客">
   <meta property="og:title" content="Cloudflare Pages 搭建免费图床！享受 Telegram 的无限空间">
   <meta property="og:description" content="免费图片托管解决方案，Flickr/imgur 替代品。使用 Cloudflare Pages 和 Telegraph。">
@@ -40,7 +40,7 @@
 
 
 
-<link rel="canonical" href="https://felixchang84.github.io/my-bolg/posts/tuchuang/">
+<link rel="canonical" href="http://localhost:1313/my-bolg/posts/tuchuang/">
 
 
 <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -50,7 +50,7 @@
 
   
   
-  <link rel="stylesheet" href="/my-bolg/css/coder.min.f6b1b35a7b02521b25338f6cf58975f9980a6c12847763fe35a48307758cd1e7.css" integrity="sha256-9rGzWnsCUhslM49s9Yl1&#43;ZgKbBKEd2P&#43;NaSDB3WM0ec=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="/my-bolg/css/coder.css" media="screen">
 
 
 
@@ -60,7 +60,7 @@
   
     
     
-    <link rel="stylesheet" href="/my-bolg/css/coder-dark.min.ad48f476275974885bdc03d5251e3cdbe1678c54a63ff772376b0ed2adc468dd.css" integrity="sha256-rUj0didZdIhb3APVJR482&#43;FnjFSmP/dyN2sO0q3EaN0=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/my-bolg/css/coder-dark.css" media="screen">
   
 
 
@@ -109,7 +109,7 @@
     <nav class="navigation">
   <section class="container">
     
-    <a class="navigation-title" href="https://felixchang84.github.io/my-bolg/">
+    <a class="navigation-title" href="http://localhost:1313/my-bolg/">
       张佳轩博客
     </a>
     
@@ -166,7 +166,7 @@
       <header>
         <div class="post-title">
           <h1 class="title">
-            <a class="title-link" href="https://felixchang84.github.io/my-bolg/posts/tuchuang/">
+            <a class="title-link" href="http://localhost:1313/my-bolg/posts/tuchuang/">
               Cloudflare Pages 搭建免费图床！享受 Telegram 的无限空间
             </a>
           </h1>
@@ -309,6 +309,67 @@
 <li>简单快捷部署</li>
 <li>可用于 Markdown 写作、博客配图等</li>
 </ul>
+<p><strong>打赏支持</strong>（可选）</p>
+<p>感谢您的支持！</p>
+<!-- 这里是样式代码，控制图片怎么显示 -->
+<style>
+  .hover-card {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #d63384; /* 文字颜色，你可以改成你喜欢的颜色 */
+    border-bottom: 1px dashed #d63384; /* 给文字加个虚线下划线，提示可以悬停 */
+    font-weight: bold;
+  }
+  .hover-card .card-img {
+    visibility: hidden;
+    width: 200px; /* 这里控制弹窗图片的宽度 */
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    border-radius: 8px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* 图片出现在文字上方 */
+    left: 50%;
+    margin-left: -100px; /* 居中修正（宽度的一半） */
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* 阴影效果 */
+  }
+  .hover-card .card-img img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+  }
+  /* 鼠标放上去时显示图片 */
+  .hover-card:hover .card-img {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>
+<!-- 这里是内容列表 -->
+<ul>
+  <li>
+    <span class="hover-card">
+      支付宝
+      <span class="card-img">
+        <!-- 注意：src 里的路径对应 static/images 目录 -->
+        <img src="/images/alipay.jpg" alt="支付宝收款码">
+      </span>
+    </span>
+  </li>
+  <li>
+    <span class="hover-card">
+      微信支付
+      <span class="card-img">
+        <!-- 注意：src 里的路径对应 static/images 目录 -->
+        <img src="/images/weixinpay.jpg" alt="微信收款码">
+      </span>
+    </span>
+  </li>
+</ul>
 <hr>
 
       </div>
@@ -355,7 +416,7 @@
 
   
   
-  <script src="/my-bolg/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  <script src="/my-bolg/js/coder.js"></script>
   
 
   

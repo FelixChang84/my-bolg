@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on 张佳轩博客</title>
+    <title>Tags on 博客主页</title>
     <link>http://localhost:1313/my-bolg/tags/</link>
-    <description>Recent content in Tags on 张佳轩博客</description>
+    <description>Recent content in Tags on 博客主页</description>
     <generator>Hugo</generator>
     <language>zh</language>
     <lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0800</lastBuildDate>
@@ -69,6 +69,41 @@
       <link>http://localhost:1313/my-bolg/tags/%E5%BD%B1%E8%A7%86%E8%81%9A%E5%90%88/</link>
       <pubDate>Mon, 13 Apr 2026 00:00:00 +1300</pubDate>
       <guid>http://localhost:1313/my-bolg/tags/%E5%BD%B1%E8%A7%86%E8%81%9A%E5%90%88/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloudflare Workers</title>
+      <link>http://localhost:1313/my-bolg/tags/cloudflare-workers/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +1500</pubDate>
+      <guid>http://localhost:1313/my-bolg/tags/cloudflare-workers/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>KV存储</title>
+      <link>http://localhost:1313/my-bolg/tags/kv%E5%AD%98%E5%82%A8/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +1500</pubDate>
+      <guid>http://localhost:1313/my-bolg/tags/kv%E5%AD%98%E5%82%A8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SubsTracker</title>
+      <link>http://localhost:1313/my-bolg/tags/substracker/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +1500</pubDate>
+      <guid>http://localhost:1313/my-bolg/tags/substracker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Telegram提醒</title>
+      <link>http://localhost:1313/my-bolg/tags/telegram%E6%8F%90%E9%86%92/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +1500</pubDate>
+      <guid>http://localhost:1313/my-bolg/tags/telegram%E6%8F%90%E9%86%92/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>订阅管理</title>
+      <link>http://localhost:1313/my-bolg/tags/%E8%AE%A2%E9%98%85%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +1500</pubDate>
+      <guid>http://localhost:1313/my-bolg/tags/%E8%AE%A2%E9%98%85%E7%AE%A1%E7%90%86/</guid>
       <description></description>
     </item>
     <item>

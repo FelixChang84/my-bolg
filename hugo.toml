@@ -1,6 +1,6 @@
 # ================= 基础站点配置 =================
 baseURL = "https://felixchang84.github.io/my-bolg/"  # ✅ 已设置正确
-title = "张佳轩博客"
+title = "博客主页"
 theme = "hugo-coder"
 languageCode = "zh"
 defaultContentLanguage = "zh"
@@ -28,7 +28,7 @@ unsafe = true
 author = "JoFuKi"
 license = '[CC BY-SA-4.0](http://creativecommons.org/licenses/by-sa/4.0/)'
 description = "技术分享与个人项目记录"
-keywords = "blog, developer, python, hugo"
+keywords = ["blog", "developer", "python", "hugo"]  # ✅ 数组格式
 info = ["Full Stack Developer", "Python Enthusiast"]
 avatarURL = "images/avatar.jpg"
 dateFormat = "2006-01-02"
@@ -82,7 +82,7 @@ weight = 1
 [languages.zh.params]
 author = "张佳轩博客"
 description = "张佳轩博客"
-keywords = "初中生,游戏,三角洲"
+keywords = ["初中生", "开发者", "三角洲"]  # ✅ 正确的数组格式
 info = ["关注我", "下方链接"]
 
 [[languages.zh.menu.main]]
@@ -108,7 +108,7 @@ weight = 2
 [languages.en.params]
 author = "Jaxon-Blog"
 description = "Jaxon-Blog"
-keywords = "blog,developer,personal"
+keywords = ["students", "Delta"]
 info = ["Follow", "The link below"]
 
 [[languages.en.menu.main]]

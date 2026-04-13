@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>免费图床 on 张佳轩博客</title>
+    <link>https://felixchang84.github.io/my-bolg/tags/%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</link>
+    <description>Recent content in 免费图床 on 张佳轩博客</description>
+    <generator>Hugo</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://felixchang84.github.io/my-bolg/tags/%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloudflare Pages 搭建免费图床！享受 Telegram 的无限空间</title>
+      <link>https://felixchang84.github.io/my-bolg/posts/tuchuang/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0800</pubDate>
+      <guid>https://felixchang84.github.io/my-bolg/posts/tuchuang/</guid>
+      <description>&lt;h1 id=&#34;cloudflare-pages-搭建免费图床享受-telegram-的无限空间&#34;&gt;&#xD;&#xA;  Cloudflare Pages 搭建免费图床！享受 Telegram 的无限空间&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#cloudflare-pages-%e6%90%ad%e5%bb%ba%e5%85%8d%e8%b4%b9%e5%9b%be%e5%ba%8a%e4%ba%ab%e5%8f%97-telegram-%e7%9a%84%e6%97%a0%e9%99%90%e7%a9%ba%e9%97%b4&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;&lt;strong&gt;免费图片托管解决方案&lt;/strong&gt;，Flickr/imgur 替代品。使用 Cloudflare Pages 和 Telegraph。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;由于原有的 Telegraph API 接口被官方关闭，需要将上传渠道切换至 Telegram Channel，请按照文档中的部署要求设置 &lt;code&gt;TG_Bot_Token&lt;/code&gt; 和 &lt;code&gt;TG_Chat_ID&lt;/code&gt;，否则将无法正常使用上传功能。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;如何获取-telegram-的-bot_token-和-chat_id&#34;&gt;&#xD;&#xA;  如何获取 Telegram 的 &lt;code&gt;Bot_Token&lt;/code&gt; 和 &lt;code&gt;Chat_ID&lt;/code&gt;&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#%e5%a6%82%e4%bd%95%e8%8e%b7%e5%8f%96-telegram-%e7%9a%84-bot_token-%e5%92%8c-chat_id&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;如果您还没有 Telegram 账户，请先创建一个。接着，按照以下步骤操作以获取 &lt;code&gt;BOT_TOKEN&lt;/code&gt; 和 &lt;code&gt;CHAT_ID&lt;/code&gt;：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;创建 Bot 并获取 BOT_TOKEN&lt;/strong&gt;&lt;br&gt;&#xA;打开 Telegram，搜索 &lt;code&gt;@BotFather&lt;/code&gt;，发送 &lt;code&gt;/newbot&lt;/code&gt;，按照提示创建一个新的 Bot，BotFather 会给你一个 &lt;code&gt;BOT_TOKEN&lt;/code&gt;（格式类似 &lt;code&gt;123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11&lt;/code&gt;）。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;创建 Channel 并获取 CHAT_ID&lt;/strong&gt;&lt;br&gt;&#xA;创建一个公开或私有的 Channel（频道），把你的 Bot 添加为管理员。&lt;br&gt;&#xA;然后向你的 Channel 发送一条消息，打开浏览器访问以下链接（把 &lt;code&gt;BOT_TOKEN&lt;/code&gt; 替换成你自己的）：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>在线五子棋</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+:root {
+  --bg: #f8f9fa;
+  --board-bg: #d2b48c;
+  --board-border: #8b4513;
+  --card: #ffffff;
+  --text: #222;
+  --text-light: #555;
+  --btn-blue: #0096ff;
+  --btn-green: #26c768;
+  --btn-yellow: #ffcc00;
+  --btn-radius: 12px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+[data-theme="dark"] {
+  --bg: #1a1a1a;
+  --board-bg: #b19068;
+  --board-border: #6d3a10;
+  --card: #252525;
+  --text: #f0f0f0;
+  --text-light: #aaa;
+  --btn-blue: #007bff;
+  --btn-green: #20a85a;
+  --btn-yellow: #e6b800;
+  --shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+.wrapper {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+.theme-toggle {
+  padding: 8px 12px;
+  border-radius: var(--btn-radius);
+  border: none;
+  background: var(--card);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  font-weight: 500;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+.board {
+  background: var(--board-bg);
+  border: 10px solid var(--board-border);
+  border-radius: 8px;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+.row { display: flex; }
+.cell {
+  width: 28px;
+  height: 28px;
+  position: relative;
+}
+.line-h {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #333;
+}
+.line-v {
+  position: absolute;
+  left: 14px;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: #333;
+}
+.stone {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.stone.black { background: #111; }
+.stone.white { background: #fff; border: 1px solid #ddd; }
+.last {
+  width: 6px;
+  height: 6px;
+  background: #ff3333;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 180px;
+}
+.status {
+  padding: 14px;
+  background: var(--card);
+  border-radius: var(--btn-radius);
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: var(--shadow);
+}
+.panel button {
+  padding: 12px;
+  border: none;
+  border-radius: var(--btn-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.panel button:hover { transform: translateY(-2px); }
+.btn-ai { background: var(--btn-green); color: #fff; }
+.btn-mode { background: var(--btn-blue); color: #fff; }
+.btn-restart { background: var(--btn-yellow); color: #222; }
+.tip {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+  <div class="header">
+    <h1>🎮 在线五子棋</h1>
+    <button class="theme-toggle" id="themeBtn">暗黑模式</button>
+  </div>
+
+  <div class="container">
+    <div class="board" id="board"></div>
+    <div class="panel">
+      <div class="status" id="status">黑棋回合</div>
+      <button class="btn-ai" id="diff">难度：中等</button>
+      <button class="btn-mode" id="mode">人机对战</button>
+      <button class="btn-restart" id="restart">重新开始</button>
+      <div class="tip">鼠标点击棋盘落子<br>AI 会自动思考落子</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const SIZE = 15
+let board = Array.from({length:SIZE},()=>Array(SIZE).fill(0))
+let current = 1
+let gameOver = false
+let vsBot = true
+let difficulty = "medium"
+let last = null
+let thinking = false
+
+const boardEl = document.getElementById("board")
+const statusEl = document.getElementById("status")
+const diffBtn = document.getElementById("diff")
+const modeBtn = document.getElementById("mode")
+const restartBtn = document.getElementById("restart")
+const themeBtn = document.getElementById("themeBtn")
+
+// 暗黑模式切换
+themeBtn.addEventListener("click",()=>{
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark"
+  if(isDark){
+    document.documentElement.removeAttribute("data-theme")
+    themeBtn.textContent = "暗黑模式"
+  }else{
+    document.documentElement.setAttribute("data-theme","dark")
+    themeBtn.textContent = "明亮模式"
+  }
+})
+
+// 初始化棋盘
+function initBoard(){
+  boardEl.innerHTML = ""
+  for(let r=0;r<SIZE;r++){
+    const row = document.createElement("div")
+    row.className = "row"
+    for(let c=0;c<SIZE;c++){
+      const cell = document.createElement("div")
+      cell.className = "cell"
+      cell.dataset.r = r
+      cell.dataset.c = c
+      const h = document.createElement("div")
+      h.className = "line-h"
+      const v = document.createElement("div")
+      v.className = "line-v"
+      cell.appendChild(h)
+      cell.appendChild(v)
+      cell.addEventListener("click",clickCell)
+      row.appendChild(cell)
+    }
+    boardEl.appendChild(row)
+  }
+}
+
+// 更新状态文字
+function updateStatus(){
+  if(gameOver) return
+  if(vsBot){
+    statusEl.textContent = current === 1 ? "你的回合（黑棋）" : "AI 思考中…"
+  }else{
+    statusEl.textContent = current === 1 ? "黑棋回合" : "白棋回合"
+  }
+}
+
+// 渲染棋子
+function renderStone(r,c,color){
+  const cell = boardEl.children[r].children[c]
+  const s = document.createElement("div")
+  s.className = `stone ${color}`
+  cell.appendChild(s)
+}
+
+// 标记最后一步
+function markLast(r,c){
+  const old = document.querySelector(".last")
+  if(old) old.remove()
+  const cell = boardEl.children[r].children[c]
+  const m = document.createElement("div")
+  m.className = "last"
+  cell.appendChild(m)
+}
+
+// 点击落子
+function clickCell(e){
+  if(gameOver || thinking) return
+  if(vsBot && current === 2) return
+  const r = parseInt(e.currentTarget.dataset.r)
+  const c = parseInt(e.currentTarget.dataset.c)
+  if(board[r][c] !== 0) return
+  place(r,c)
+}
+
+// 落子逻辑
+function place(r,c){
+  board[r][c] = current
+  renderStone(r,c, current === 1 ? "black" : "white")
+  last = [r,c]
+  markLast(r,c)
+  
+  if(checkWin(r,c)){
+    gameOver = true
+    statusEl.textContent = vsBot 
+      ? (current === 1 ? "🎉 你赢了！" : "💻 AI 获胜！")
+      : (current === 1 ? "黑棋胜！" : "白棋胜！")
+    return
+  }
+  
+  if(isFull()){
+    gameOver = true
+    statusEl.textContent = "🤝 平局！"
+    return
+  }
+  
+  current = 3 - current
+  updateStatus()
+  
+  if(vsBot && current === 2 && !gameOver){
+    aiThink()
+  }
+}
+
+// 胜负判断
+function checkWin(r,c){
+  const p = board[r][c]
+  const dirs = [[0,1],[1,0],[1,1],[1,-1]]
+  for(const [dr,dc] of dirs){
+    let cnt = 1
+    let nr = r+dr, nc = c+dc
+    while(nr>=0&&nr<SIZE&&nc>=0&&nc<SIZE&&board[nr][nc]===p){cnt++;nr+=dr;nc+=dc}
+    nr = r-dr; nc = c-dc
+    while(nr>=0&&nr<SIZE&&nc>=0&&nc<SIZE&&board[nr][nc]===p){cnt++;nr-=dr;nc-=dc}
+    if(cnt >=5) return true
+  }
+  return false
+}
+
+// 棋盘满了
+function isFull(){
+  return board.every(row=>row.every(v=>v!==0))
+}
+
+// AI思考延迟
+function aiThink(){
+  thinking = true
+  const delay = difficulty === "easy" ? 1100 : difficulty === "hard" ? 300 : 600
+  setTimeout(aiMove, delay)
+}
+
+// AI落子
+function aiMove(){
+  if(gameOver || current !==2){ thinking = false; return }
+  let best = null
+  let maxScore = -Infinity
+  for(let r=0;r<SIZE;r++){
+    for(let c=0;c<SIZE;c++){
+      if(board[r][c]!==0) continue
+      const score = evalPos(r,c,2) + evalPos(r,c,1)*0.95
+      if(score > maxScore){
+        maxScore = score
+        best = [r,c]
+      }
+    }
+  }
+  if(best) place(...best)
+  thinking = false
+}
+
+// 位置评分
+function evalPos(r,c,player){
+  let score = 0
+  const dirs = [[0,1],[1,0],[1,1],[1,-1]]
+  for(const [dr,dc] of dirs){
+    let cnt=1, le=0, re=0
+    let nr = r+dr, nc = c+dc
+    while(nr>=0&&nr<SIZE&&nc>=0&&nc<SIZE&&board[nr][nc]===player){cnt++;nr+=dr;nc+=dc}
+    if(nr>=0&&nr<SIZE&&nc>=0&&nc<SIZE&&board[nr][nc]===0) re=1
+    nr = r-dr; nc = c-dc
+    while(nr>=0&&nr<SIZE&&nc>=0&&nc<SIZE&&board[nr][nc]===player){cnt++;nr-=dr;nc-=dc}
+    if(nr>=0&&nr<SIZE&&nc>=0&&nc<SIZE&&board[nr][nc]===0) le=1
+    
+    if(cnt>=5) score+=100000
+    else if(cnt===4&&le&&re) score+=50000
+    else if(cnt===4) score+=10000
+    else if(cnt===3&&le&&re) score+=5000
+    else if(cnt===3) score+=800
+    else if(cnt===2&&le&&re) score+=500
+    else if(cnt===2) score+=100
+    else score+=5
+  }
+  return score
+}
+
+// 重新开始
+restartBtn.addEventListener("click",()=>{
+  board = Array.from({length:SIZE},()=>Array(SIZE).fill(0))
+  current = 1
+  gameOver = false
+  thinking = false
+  last = null
+  initBoard()
+  updateStatus()
+})
+
+// 切换人机/双人
+modeBtn.addEventListener("click",()=>{
+  vsBot = !vsBot
+  modeBtn.textContent = vsBot ? "人机对战" : "双人对战"
+  restartBtn.click()
+})
+
+// 切换难度
+diffBtn.addEventListener("click",()=>{
+  if(difficulty === "easy"){
+    difficulty = "medium"
+    diffBtn.textContent = "难度：中等"
+  }else if(difficulty === "medium"){
+    difficulty = "hard"
+    diffBtn.textContent = "难度：困难"
+  }else{
+    difficulty = "easy"
+    diffBtn.textContent = "难度：简单"
+  }
+})
+
+// 启动
+initBoard()
+updateStatus()
+</script>
+</body>
+</html>

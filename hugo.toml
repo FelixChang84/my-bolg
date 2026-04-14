@@ -1,5 +1,5 @@
 # ================= 基础站点配置 =================
-baseURL = "https://felixchang84.github.io/my-bolg/"  # ✅ 已设置正确
+baseURL = "https://FelixChang84.github.io/my-bolg/"  # ✅ 已设置正确
 title = "博客主页"
 theme = "hugo-coder"
 languageCode = "zh"

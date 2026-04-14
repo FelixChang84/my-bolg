@@ -16,10 +16,10 @@ weight: 3
 - **链接**：[访问博客](https://jaxon.ccwu.cc/)
 - **技术栈**：Hugo, Coder Theme, Cloudflare Pages
 
-### 2.  工具 A (你可以随时修改这个例子)
-- **描述**：一个用于解决...的小工具。
-- **链接**：[GitHub 仓库](https://github.com/FelixChang84/my-bolg)
-- **技术栈**：Python, Flask
+### 2.  LibreTV 影视站
+- **描述**：基于LibreTV项目 和 Cloudflare Pages 搭建的个人影视站
+- **链接**：[访问影视](https://libre-tv.ccwu.cc/)
+- **技术栈**：静态前端, Serverless 边缘代理, 第三方 API
 
 ---
 

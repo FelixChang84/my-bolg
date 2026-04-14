@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>订阅管理 on 博客主页</title>
-    <link>http://localhost:1313/my-bolg/tags/%E8%AE%A2%E9%98%85%E7%AE%A1%E7%90%86/</link>
+    <link>https://FelixChang84.github.io/my-bolg/tags/%E8%AE%A2%E9%98%85%E7%AE%A1%E7%90%86/</link>
     <description>Recent content in 订阅管理 on 博客主页</description>
     <generator>Hugo</generator>
     <language>zh</language>
     <lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/my-bolg/tags/%E8%AE%A2%E9%98%85%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://FelixChang84.github.io/my-bolg/tags/%E8%AE%A2%E9%98%85%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cloudflare Pages  – SubsTracker订阅管理与提醒系统</title>
-      <link>http://localhost:1313/my-bolg/posts/subs-tracke/</link>
+      <link>https://FelixChang84.github.io/my-bolg/posts/subs-tracke/</link>
       <pubDate>Mon, 13 Apr 2026 00:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/my-bolg/posts/subs-tracke/</guid>
+      <guid>https://FelixChang84.github.io/my-bolg/posts/subs-tracke/</guid>
       <description>&lt;h1 id=&#34;substracker--订阅管理与提醒系统cloudflare-workers&#34;&gt;&#xD;&#xA;  SubsTracker – 订阅管理与提醒系统（Cloudflare Workers）&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#substracker--%e8%ae%a2%e9%98%85%e7%ae%a1%e7%90%86%e4%b8%8e%e6%8f%90%e9%86%92%e7%b3%bb%e7%bb%9fcloudflare-workers&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;SubsTracker – 订阅管理与提醒系统是基于 &lt;strong&gt;Cloudflare Workers&lt;/strong&gt; 的轻量级订阅管理系统，帮助您轻松跟踪各类订阅服务的到期时间，并通过 Telegram 发送及时提醒。&lt;/p&gt;&#xA;&lt;h2 id=&#34;-特性&#34;&gt;&#xD;&#xA;  ✨ 特性&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#-%e7%89%b9%e6%80%a7&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🔔 &lt;strong&gt;自动提醒&lt;/strong&gt;：在订阅到期前自动发送 Telegram 通知&lt;/li&gt;&#xA;&lt;li&gt;📊 &lt;strong&gt;订阅管理&lt;/strong&gt;：直观的 Web 界面管理所有订阅&lt;/li&gt;&#xA;&lt;li&gt;🔄 &lt;strong&gt;周期计算&lt;/strong&gt;：智能计算循环订阅的下一个周期&lt;/li&gt;&#xA;&lt;li&gt;📱 &lt;strong&gt;响应式设计&lt;/strong&gt;：完美适配移动端和桌面设备&lt;/li&gt;&#xA;&lt;li&gt;☁️ &lt;strong&gt;免服务器&lt;/strong&gt;：基于 Cloudflare Workers，无需自建服务器&lt;/li&gt;&#xA;&lt;li&gt;🔒 &lt;strong&gt;安全可靠&lt;/strong&gt;：数据存储在 Cloudflare KV 中，安全且高效&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;注意！！！！！&lt;/strong&gt;：在开始之前，需在 Cloudflare 控制台左侧面板依次点击：&lt;strong&gt;存储和数据库 → KV → 创建&lt;/strong&gt;，空间名称和变量都填写 &lt;code&gt;SUBSCRIPTIONS_KV&lt;/code&gt;，保存后再部署，并给 Worker 绑定键值对以及设置定时执行时间！名称必须是 &lt;code&gt;SUBSCRIPTIONS_KV&lt;/code&gt;，否则添加订阅将无法保存！&lt;/p&gt;&#xA;&lt;h2 id=&#34;版本更新参考-github&#34;&gt;&#xD;&#xA;  版本更新（参考 GitHub）&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#%e7%89%88%e6%9c%ac%e6%9b%b4%e6%96%b0%e5%8f%82%e8%80%83-github&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;（原文中此部分可根据实际更新补充）&lt;/p&gt;</description>
     </item>
   </channel>

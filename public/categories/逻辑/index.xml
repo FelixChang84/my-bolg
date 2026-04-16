@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>逻辑 on 博客主页</title>
-    <link>http://localhost:1313/my-bolg/categories/%E9%80%BB%E8%BE%91/</link>
+    <link>https://FelixChang84.github.io/my-bolg/categories/%E9%80%BB%E8%BE%91/</link>
     <description>Recent content in 逻辑 on 博客主页</description>
     <generator>Hugo</generator>
     <language>zh</language>
     <lastBuildDate>Tue, 14 Apr 2026 00:00:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/my-bolg/categories/%E9%80%BB%E8%BE%91/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://FelixChang84.github.io/my-bolg/categories/%E9%80%BB%E8%BE%91/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>五子棋对战</title>
-      <link>http://localhost:1313/my-bolg/posts/qizi/</link>
+      <link>https://FelixChang84.github.io/my-bolg/posts/qizi/</link>
       <pubDate>Tue, 14 Apr 2026 00:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/my-bolg/posts/qizi/</guid>
-      <description>&lt;iframe src=&#34;http://localhost:1313/my-bolg/gomoku.html&#34; width=&#34;100%&#34; height=&#34;700&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;</description>
+      <guid>https://FelixChang84.github.io/my-bolg/posts/qizi/</guid>
+      <description>&lt;iframe src=&#34;https://FelixChang84.github.io/my-bolg/gomoku.html&#34; width=&#34;100%&#34; height=&#34;700&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;</description>
     </item>
   </channel>
 </rss>

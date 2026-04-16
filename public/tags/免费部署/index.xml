@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>免费部署 on 博客主页</title>
-    <link>http://localhost:1313/my-bolg/tags/%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2/</link>
+    <link>https://FelixChang84.github.io/my-bolg/tags/%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2/</link>
     <description>Recent content in 免费部署 on 博客主页</description>
     <generator>Hugo</generator>
     <language>zh</language>
     <lastBuildDate>Mon, 13 Apr 2026 00:00:00 +1300</lastBuildDate>
-    <atom:link href="http://localhost:1313/my-bolg/tags/%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://FelixChang84.github.io/my-bolg/tags/%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cloudflare Pages 免费搭建 LibreTV 在线影视聚合、播放平台！</title>
-      <link>http://localhost:1313/my-bolg/posts/libretv-deploy-guide/</link>
+      <link>https://FelixChang84.github.io/my-bolg/posts/libretv-deploy-guide/</link>
       <pubDate>Mon, 13 Apr 2026 00:00:00 +1300</pubDate>
-      <guid>http://localhost:1313/my-bolg/posts/libretv-deploy-guide/</guid>
+      <guid>https://FelixChang84.github.io/my-bolg/posts/libretv-deploy-guide/</guid>
       <description>&lt;h1 id=&#34;cloudflare-pages-免费搭建-libretv-在线影视聚合播放平台&#34;&gt;&#xD;&#xA;  Cloudflare Pages 免费搭建 LibreTV 在线影视聚合、播放平台！&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#cloudflare-pages-%e5%85%8d%e8%b4%b9%e6%90%ad%e5%bb%ba-libretv-%e5%9c%a8%e7%ba%bf%e5%bd%b1%e8%a7%86%e8%81%9a%e5%90%88%e6%92%ad%e6%94%be%e5%b9%b3%e5%8f%b0&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;h2 id=&#34;-项目简介&#34;&gt;&#xD;&#xA;  📺 项目简介&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#-%e9%a1%b9%e7%9b%ae%e7%ae%80%e4%bb%8b&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;LibreTV 是一个轻量级、免费的在线视频搜索与观看平台，提供来自多个视频源的内容搜索与播放服务。无需注册，即开即用，支持多种设备访问。项目结合了前端技术和后端代理功能，可部署在支持服务端功能的各类网站托管服务上。&lt;/p&gt;&#xA;&lt;h2 id=&#34;-详细部署指南&#34;&gt;&#xD;&#xA;  📋 详细部署指南&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#-%e8%af%a6%e7%bb%86%e9%83%a8%e7%bd%b2%e6%8c%87%e5%8d%97&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;h3 id=&#34;cloudflare-pages-官网&#34;&gt;&#xD;&#xA;  Cloudflare Pages 【官网】&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#cloudflare-pages-%e5%ae%98%e7%bd%91&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h3&gt;&#xD;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Fork 或克隆本仓库到您的 GitHub 账户（&lt;strong&gt;LibreTV 仓库链接&lt;/strong&gt;：https://github.com/LibreSpark/LibreTV）&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;登录 &lt;a href=&#34;https://dash.cloudflare.com/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloudflare Dashboard&lt;/a&gt;，进入 &lt;strong&gt;Pages&lt;/strong&gt; 服务&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;点击「创建项目」，连接您的 GitHub 仓库&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;使用以下设置：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;构建命令&lt;/strong&gt;：留空（无需构建）&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;输出目录&lt;/strong&gt;：留空（默认为根目录）&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;⚠️ 重要&lt;/strong&gt;：在「设置」&amp;gt; 「环境变量」中添加 &lt;code&gt;PASSWORD&lt;/code&gt; 变量（必须设置，用于后台管理密码）&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;可选&lt;/strong&gt;：在「Settings」&amp;gt; 「Environment Variables」中添加 &lt;code&gt;ADMINPASSWORD&lt;/code&gt; 变量&lt;/p&gt;</description>
     </item>
   </channel>

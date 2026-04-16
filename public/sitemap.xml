@@ -2,14 +2,14 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <sitemap>
-    <loc>https://FelixChang84.github.io/my-bolg/zh/sitemap.xml</loc>
+    <loc>http://localhost:1313/my-bolg/zh/sitemap.xml</loc>
     
       <lastmod>2026-04-14T00:00:00+08:00</lastmod>
     
   </sitemap>
   
   <sitemap>
-    <loc>https://FelixChang84.github.io/my-bolg/en/sitemap.xml</loc>
+    <loc>http://localhost:1313/my-bolg/en/sitemap.xml</loc>
     
   </sitemap>
   

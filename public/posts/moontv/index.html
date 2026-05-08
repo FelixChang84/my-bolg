@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head><script src="/my-bolg/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my-bolg/livereload" data-no-instant defer></script>
+  <title>
+  loudflare &#43; MoonTVPlus：零成本搭建个人影视站终极指南 · 博客主页
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="张佳轩博客">
+<meta name="description" content="
+  🎬 Cloudflare &#43; MoonTVPlus：零成本搭建个人影视站终极指南
+  
+    
+    Link to heading
+  
+
+
+📺 视频预览：
+
+📝 原文参考：skilladd.org
+
+
+
+  📋 视频内容速览
+  
+    
+    Link to heading
+  
+
+本视频由UP主「技能加点」发布，时长约7分19秒，详细介绍了如何使用 Cloudflare Workers &#43; MoonTVPlus 一键部署一个功能强大的个人影视聚合站。核心亮点包括：
+✅ 零成本：完全利用Cloudflare免费额度
+✅ 零维护：无需服务器，部署后自动运行
+✅ 全平台：支持网页、电视、手机多端播放
+✅ 功能丰富：弹幕、评论、外部播放器、视频超分等增强功能
+
+
+  🔍 MoonTVPlus 是什么？
+  
+    
+    Link to heading
+  
+
+MoonTVPlus 是基于 MoonTV v100 二次开发的增强版影视聚合播放器，在原版基础上新增了以下实用功能：
+
+  
+      
+          功能
+          说明
+      
+  
+  
+      
+          🎞️ 外部播放器支持
+          可调用本地或第三方播放器，提升兼容性
+      
+      
+          ✨ 视频超分
+          AI增强画质，低清资源也能高清观看
+      
+      
+          💬 弹幕系统
+          支持实时弹幕互动，观影不孤单
+      
+      
+          📝 评论抓取
+          聚合多平台评论，一站式查看观影反馈
+      
+      
+          🔍 资源聚合
+          整合全网影视源，搜索即得
+      
+  
+
+
+
+  🛠️ 部署前准备（3个账号搞定）
+  
+    
+    Link to heading
+  
+
+
+
+Cloudflare 账号
+→ 用于部署 Workers 边缘服务，提供全球CDN加速">
+<meta name="keywords" content="[初中生 开发者 三角洲]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="loudflare &#43; MoonTVPlus：零成本搭建个人影视站终极指南">
+  <meta name="twitter:description" content="🎬 Cloudflare &#43; MoonTVPlus：零成本搭建个人影视站终极指南Link to heading📺 视频预览：
+📝 原文参考：skilladd.org
+📋 视频内容速览Link to heading本视频由UP主「技能加点」发布，时长约7分19秒，详细介绍了如何使用 Cloudflare Workers &#43; MoonTVPlus 一键部署一个功能强大的个人影视聚合站。核心亮点包括：
+✅ 零成本：完全利用Cloudflare免费额度
+✅ 零维护：无需服务器，部署后自动运行
+✅ 全平台：支持网页、电视、手机多端播放
+✅ 功能丰富：弹幕、评论、外部播放器、视频超分等增强功能
+🔍 MoonTVPlus 是什么？Link to headingMoonTVPlus 是基于 MoonTV v100 二次开发的增强版影视聚合播放器，在原版基础上新增了以下实用功能：
+功能 说明 🎞️ 外部播放器支持 可调用本地或第三方播放器，提升兼容性 ✨ 视频超分 AI增强画质，低清资源也能高清观看 💬 弹幕系统 支持实时弹幕互动，观影不孤单 📝 评论抓取 聚合多平台评论，一站式查看观影反馈 🔍 资源聚合 整合全网影视源，搜索即得 🛠️ 部署前准备（3个账号搞定）Link to headingCloudflare 账号
+→ 用于部署 Workers 边缘服务，提供全球CDN加速">
+
+<meta property="og:url" content="http://localhost:1313/my-bolg/posts/moontv/">
+  <meta property="og:site_name" content="博客主页">
+  <meta property="og:title" content="loudflare &#43; MoonTVPlus：零成本搭建个人影视站终极指南">
+  <meta property="og:description" content="🎬 Cloudflare &#43; MoonTVPlus：零成本搭建个人影视站终极指南Link to heading📺 视频预览：
+📝 原文参考：skilladd.org
+📋 视频内容速览Link to heading本视频由UP主「技能加点」发布，时长约7分19秒，详细介绍了如何使用 Cloudflare Workers &#43; MoonTVPlus 一键部署一个功能强大的个人影视聚合站。核心亮点包括：
+✅ 零成本：完全利用Cloudflare免费额度
+✅ 零维护：无需服务器，部署后自动运行
+✅ 全平台：支持网页、电视、手机多端播放
+✅ 功能丰富：弹幕、评论、外部播放器、视频超分等增强功能
+🔍 MoonTVPlus 是什么？Link to headingMoonTVPlus 是基于 MoonTV v100 二次开发的增强版影视聚合播放器，在原版基础上新增了以下实用功能：
+功能 说明 🎞️ 外部播放器支持 可调用本地或第三方播放器，提升兼容性 ✨ 视频超分 AI增强画质，低清资源也能高清观看 💬 弹幕系统 支持实时弹幕互动，观影不孤单 📝 评论抓取 聚合多平台评论，一站式查看观影反馈 🔍 资源聚合 整合全网影视源，搜索即得 🛠️ 部署前准备（3个账号搞定）Link to headingCloudflare 账号
+→ 用于部署 Workers 边缘服务，提供全球CDN加速">
+  <meta property="og:locale" content="zh">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-05-07T00:00:00+13:00">
+    <meta property="article:modified_time" content="2026-05-07T00:00:00+13:00">
+    <meta property="article:tag" content="MoonTV">
+    <meta property="article:tag" content="Cloudflare Pages">
+    <meta property="article:tag" content="影视聚合">
+    <meta property="article:tag" content="免费部署">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/my-bolg/posts/moontv/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/my-bolg/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/my-bolg/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/my-bolg/">
+      博客主页
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/my-bolg/about/">关于</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/my-bolg/posts/">文章</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/my-bolg/projects/">项目</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/my-bolg/en/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/my-bolg/posts/moontv/">
+              loudflare &#43; MoonTVPlus：零成本搭建个人影视站终极指南
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-05-07T00:00:00&#43;13:00">
+                2026-05-07
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/my-bolg/categories/%E6%95%99%E7%A8%8B/">教程</a>
+      <span class="separator">•</span>
+    <a href="/my-bolg/categories/%E8%87%AA%E5%BB%BA%E6%9C%8D%E5%8A%A1/">自建服务</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/my-bolg/tags/moontv/">MoonTV</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/my-bolg/tags/cloudflare-pages/">Cloudflare Pages</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/my-bolg/tags/%E5%BD%B1%E8%A7%86%E8%81%9A%E5%90%88/">影视聚合</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/my-bolg/tags/%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2/">免费部署</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <h1 id="-cloudflare--moontvplus零成本搭建个人影视站终极指南">
+  🎬 Cloudflare + MoonTVPlus：零成本搭建个人影视站终极指南
+  <a class="heading-link" href="#-cloudflare--moontvplus%e9%9b%b6%e6%88%90%e6%9c%ac%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%bd%b1%e8%a7%86%e7%ab%99%e7%bb%88%e6%9e%81%e6%8c%87%e5%8d%97">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<blockquote>
+<p>📺 视频预览：</p>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116389872538913&bvid=BV1DpDSBEErp&cid=37438686916&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<p>📝 原文参考：<a href="https://skilladd.org/2026/04/11/49.Cloudflare%E6%90%AD%E5%BB%BAMoontvplus/"  class="external-link" target="_blank" rel="noopener">skilladd.org</a></p>
+</blockquote>
+<hr>
+<h2 id="-视频内容速览">
+  📋 视频内容速览
+  <a class="heading-link" href="#-%e8%a7%86%e9%a2%91%e5%86%85%e5%ae%b9%e9%80%9f%e8%a7%88">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>本视频由UP主「技能加点」发布，时长约7分19秒，详细介绍了如何使用 <strong>Cloudflare Workers + MoonTVPlus</strong> 一键部署一个功能强大的个人影视聚合站。核心亮点包括：</p>
+<p>✅ <strong>零成本</strong>：完全利用Cloudflare免费额度<br>
+✅ <strong>零维护</strong>：无需服务器，部署后自动运行<br>
+✅ <strong>全平台</strong>：支持网页、电视、手机多端播放<br>
+✅ <strong>功能丰富</strong>：弹幕、评论、外部播放器、视频超分等增强功能</p>
+<hr>
+<h2 id="-moontvplus-是什么">
+  🔍 MoonTVPlus 是什么？
+  <a class="heading-link" href="#-moontvplus-%e6%98%af%e4%bb%80%e4%b9%88">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>MoonTVPlus 是基于 MoonTV v100 二次开发的<strong>增强版影视聚合播放器</strong>，在原版基础上新增了以下实用功能：</p>
+<table>
+  <thead>
+      <tr>
+          <th>功能</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>🎞️ 外部播放器支持</td>
+          <td>可调用本地或第三方播放器，提升兼容性</td>
+      </tr>
+      <tr>
+          <td>✨ 视频超分</td>
+          <td>AI增强画质，低清资源也能高清观看</td>
+      </tr>
+      <tr>
+          <td>💬 弹幕系统</td>
+          <td>支持实时弹幕互动，观影不孤单</td>
+      </tr>
+      <tr>
+          <td>📝 评论抓取</td>
+          <td>聚合多平台评论，一站式查看观影反馈</td>
+      </tr>
+      <tr>
+          <td>🔍 资源聚合</td>
+          <td>整合全网影视源，搜索即得</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-部署前准备3个账号搞定">
+  🛠️ 部署前准备（3个账号搞定）
+  <a class="heading-link" href="#-%e9%83%a8%e7%bd%b2%e5%89%8d%e5%87%86%e5%a4%873%e4%b8%aa%e8%b4%a6%e5%8f%b7%e6%90%9e%e5%ae%9a">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ol>
+<li>
+<p><strong>Cloudflare 账号</strong><br>
+→ 用于部署 Workers 边缘服务，提供全球CDN加速</p>
+</li>
+<li>
+<p><strong>GitHub 账号</strong><br>
+→ 用于托管代码、配置自动化部署流程</p>
+</li>
+<li>
+<p><strong>Upstash 账号</strong>（免费256MB Redis）<br>
+→ 用于存储用户数据、播放记录等</p>
+</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>重要提醒</strong>：视频作者特别建议「部署完就删库」，因为频繁API调用可能被GitHub机器人误判为异常行为，导致账号被封禁，而解封需手机号验证（不支持中国大陆及港澳台地区）😅</p>
+</blockquote>
+<hr>
+<h2 id="-一键部署四步走">
+  🚀 一键部署四步走
+  <a class="heading-link" href="#-%e4%b8%80%e9%94%ae%e9%83%a8%e7%bd%b2%e5%9b%9b%e6%ad%a5%e8%b5%b0">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="第一步获取-cloudflare-api-token-和-account-id">
+  第一步：获取 Cloudflare API Token 和 Account ID
+  <a class="heading-link" href="#%e7%ac%ac%e4%b8%80%e6%ad%a5%e8%8e%b7%e5%8f%96-cloudflare-api-token-%e5%92%8c-account-id">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>登录 Cloudflare 仪表板 → 头像 → <strong>My Profile</strong> → <strong>API Tokens</strong></li>
+<li>选择模板：<code>Edit Cloudflare Workers</code></li>
+<li>权限配置：
+<ul>
+<li><code>Account &gt; Cloudflare Workers Scripts &gt; Edit</code></li>
+<li><code>Account &gt; D1 &gt; Edit</code>（如使用D1数据库）</li>
+</ul>
+</li>
+<li>创建后<strong>立即复制Token</strong>（仅显示一次！）</li>
+<li>在 Dashboard 首页右侧查看 <strong>Account ID</strong></li>
+</ul>
+<h3 id="第二步创建-upstash-redis-数据库">
+  第二步：创建 Upstash Redis 数据库
+  <a class="heading-link" href="#%e7%ac%ac%e4%ba%8c%e6%ad%a5%e5%88%9b%e5%bb%ba-upstash-redis-%e6%95%b0%e6%8d%ae%e5%ba%93">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>注册登录 <a href="https://upstash.com"  class="external-link" target="_blank" rel="noopener">Upstash</a></li>
+<li>创建免费 Redis 实例（256MB足够个人使用）</li>
+<li>复制生成的 <strong>REST API URL</strong> 和 <strong>Token</strong></li>
+</ul>
+<h3 id="第三步配置-github-secrets">
+  第三步：配置 GitHub Secrets
+  <a class="heading-link" href="#%e7%ac%ac%e4%b8%89%e6%ad%a5%e9%85%8d%e7%bd%ae-github-secrets">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>进入你 Fork 的 MoonTVPlus 仓库，依次添加以下环境变量：</p>
+<table>
+  <thead>
+      <tr>
+          <th>Secret 名称</th>
+          <th>作用</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>CLOUDFLARE_API_TOKEN</code></td>
+          <td>CF API认证</td>
+          <td><code>your_api_token_here</code></td>
+      </tr>
+      <tr>
+          <td><code>CLOUDFLARE_ACCOUNT_ID</code></td>
+          <td>CF账户标识</td>
+          <td><code>abc123def456</code></td>
+      </tr>
+      <tr>
+          <td><code>USERNAME</code></td>
+          <td>后台管理账号</td>
+          <td><code>admin</code></td>
+      </tr>
+      <tr>
+          <td><code>PASSWORD</code></td>
+          <td>后台管理密码</td>
+          <td><code>your_secure_password</code></td>
+      </tr>
+      <tr>
+          <td><code>NEXT_PUBLIC_STORAGE_TYPE</code></td>
+          <td>存储后端类型</td>
+          <td><code>upstash</code></td>
+      </tr>
+      <tr>
+          <td><code>UPSTASH_URL</code></td>
+          <td>Redis连接地址</td>
+          <td><code>https://xxx.upstash.io</code></td>
+      </tr>
+      <tr>
+          <td><code>UPSTASH_TOKEN</code></td>
+          <td>Redis访问令牌</td>
+          <td><code>your_upstash_token</code></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="第四步触发-github-actions-自动部署">
+  第四步：触发 GitHub Actions 自动部署
+  <a class="heading-link" href="#%e7%ac%ac%e5%9b%9b%e6%ad%a5%e8%a7%a6%e5%8f%91-github-actions-%e8%87%aa%e5%8a%a8%e9%83%a8%e7%bd%b2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>确保仓库已启用 Actions</li>
+<li>推送任意提交或手动触发 <code>Deploy</code> 工作流</li>
+<li>等待约2-5分钟，部署成功后可在 Cloudflare Workers 面板查看访问域名</li>
+</ul>
+<hr>
+<h2 id="-如何使用">
+  📱 如何使用？
+  <a class="heading-link" href="#-%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="-访问你的影视站">
+  🔗 访问你的影视站
+  <a class="heading-link" href="#-%e8%ae%bf%e9%97%ae%e4%bd%a0%e7%9a%84%e5%bd%b1%e8%a7%86%e7%ab%99">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>部署成功后，你将获得一个 <code>*.workers.dev</code> 域名（或绑定自定义域名），浏览器打开即可使用。</p>
+<h3 id="-多端播放方案">
+  📺 多端播放方案
+  <a class="heading-link" href="#-%e5%a4%9a%e7%ab%af%e6%92%ad%e6%94%be%e6%96%b9%e6%a1%88">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>网页端</strong>：直接访问域名，支持弹幕、搜索、收藏</li>
+<li><strong>电视端</strong>：推荐使用 <strong>OrionTV</strong> 或 <strong>TiviMate</strong> 等支持Web源的播放器，填入你的站点API地址</li>
+<li><strong>手机端</strong>：浏览器访问或添加到主屏幕，体验近似原生App</li>
+</ul>
+<h3 id="-视频源配置">
+  🎯 视频源配置
+  <a class="heading-link" href="#-%e8%a7%86%e9%a2%91%e6%ba%90%e9%85%8d%e7%bd%ae">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>默认使用 <code>test.json</code> 作为测试源，实际使用时可：</p>
+<ul>
+<li>自行维护 JSON 源列表</li>
+<li>接入开源影视源项目（注意版权合规）</li>
+<li>通过后台动态管理资源接口</li>
+</ul>
+<hr>
+<h2 id="-注意事项--风险提示">
+  ⚠️ 注意事项 &amp; 风险提示
+  <a class="heading-link" href="#-%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9--%e9%a3%8e%e9%99%a9%e6%8f%90%e7%a4%ba">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ol>
+<li><strong>合规使用</strong>：请确保所聚合内容符合当地法律法规，建议仅用于学习或个人测试</li>
+<li><strong>账号安全</strong>：妥善保管 API Token，避免泄露；部署后建议删除敏感 Secrets</li>
+<li><strong>流量限制</strong>：Cloudflare 免费计划有请求次数限制，高并发可能触发限流</li>
+<li><strong>项目维护</strong>：开源项目可能更新或停止维护，建议定期关注上游仓库动态</li>
+</ol>
+<hr>
+<h2 id="-延伸思考为什么这类方案火了">
+  💡 延伸思考：为什么这类方案火了？
+  <a class="heading-link" href="#-%e5%bb%b6%e4%bc%b8%e6%80%9d%e8%80%83%e4%b8%ba%e4%bb%80%e4%b9%88%e8%bf%99%e7%b1%bb%e6%96%b9%e6%a1%88%e7%81%ab%e4%ba%86">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>随着流媒体平台会员费用上涨、内容分区限制增多，越来越多技术爱好者开始探索「自建影视站」方案。Cloudflare 的边缘计算能力 + 开源前端项目，让「零成本、零运维」成为可能。</p>
+<p>但我们也需理性看待：</p>
+<ul>
+<li>🔐 技术无罪，使用有责</li>
+<li>🌐 尊重版权，支持正版</li>
+<li>🛡️ 注意隐私，保护数据</li>
+</ul>
+<hr>
+<h2 id="-资源汇总">
+  📚 资源汇总
+  <a class="heading-link" href="#-%e8%b5%84%e6%ba%90%e6%b1%87%e6%80%bb">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>名称</th>
+          <th>链接</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>MoonTVPlus 项目</td>
+          <td><a href="https://github.com"  class="external-link" target="_blank" rel="noopener">GitHub 仓库</a>（搜索 MoonTVPlus）</td>
+      </tr>
+      <tr>
+          <td>Cloudflare Workers</td>
+          <td><a href="https://workers.cloudflare.com"  class="external-link" target="_blank" rel="noopener">workers.cloudflare.com</a></td>
+      </tr>
+      <tr>
+          <td>Upstash Redis</td>
+          <td><a href="https://upstash.com"  class="external-link" target="_blank" rel="noopener">upstash.com</a></td>
+      </tr>
+      <tr>
+          <td>原视频教程</td>
+          <td><a href="https://www.bilibili.com/video/BV1DpDSBEErp"  class="external-link" target="_blank" rel="noopener">B站 BV1DpDSBEErp</a></td>
+      </tr>
+      <tr>
+          <td>图文教程</td>
+          <td><a href="https://skilladd.org/2026/04/11/49.Cloudflare%e6%90%ad%e5%bb%baMoontvplus/"  class="external-link" target="_blank" rel="noopener">skilladd.org 博客</a></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<blockquote>
+<p>🎯 <strong>小结</strong>：Cloudflare + MoonTVPlus 是一套极具创意的前端工程实践，适合对 Web 开发、边缘计算感兴趣的朋友动手尝试。技术探索的乐趣在于过程，而合法合规、尊重创作者，才是长久享受数字生活的基石。</p>
+</blockquote>
+<hr>
+<p><em>本文内容基于公开教程整理，仅用于技术学习交流。</em></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     张佳轩博客 
+    ·
+    
+       [CC BY-SA-4.0](http://creativecommons.org/licenses/by-sa/4.0/)
+    ·
+    
+     <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/my-bolg/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

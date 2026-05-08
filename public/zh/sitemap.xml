@@ -7,7 +7,7 @@
     <loc>http://localhost:1313/my-bolg/projects/</loc>
   </url><url>
     <loc>http://localhost:1313/my-bolg/categories/</loc>
-    <lastmod>2026-04-28T08:30:00+08:00</lastmod>
+    <lastmod>2026-05-07T00:00:00+13:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -19,20 +19,20 @@
                 href="http://localhost:1313/my-bolg/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/my-bolg/tags/cloudflare/</loc>
-    <lastmod>2026-04-28T08:30:00+08:00</lastmod>
+    <loc>http://localhost:1313/my-bolg/tags/cloudflare-pages/</loc>
+    <lastmod>2026-05-07T00:00:00+13:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/my-bolg/posts/edt/</loc>
-    <lastmod>2026-04-28T08:30:00+08:00</lastmod>
+    <loc>http://localhost:1313/my-bolg/posts/moontv/</loc>
+    <lastmod>2026-05-07T00:00:00+13:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/my-bolg/tags/edt/</loc>
-    <lastmod>2026-04-28T08:30:00+08:00</lastmod>
+    <loc>http://localhost:1313/my-bolg/tags/moontv/</loc>
+    <lastmod>2026-05-07T00:00:00+13:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/my-bolg/posts/</loc>
-    <lastmod>2026-04-28T08:30:00+08:00</lastmod>
+    <lastmod>2026-05-07T00:00:00+13:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/my-bolg/tags/</loc>
-    <lastmod>2026-04-28T08:30:00+08:00</lastmod>
+    <lastmod>2026-05-07T00:00:00+13:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -45,7 +45,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/my-bolg/</loc>
-    <lastmod>2026-04-28T08:30:00+08:00</lastmod>
+    <lastmod>2026-05-07T00:00:00+13:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -56,6 +56,27 @@
                 hreflang="zh"
                 href="http://localhost:1313/my-bolg/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/my-bolg/categories/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2026-05-07T00:00:00+13:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-bolg/tags/%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2026-05-07T00:00:00+13:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-bolg/tags/%E5%BD%B1%E8%A7%86%E8%81%9A%E5%90%88/</loc>
+    <lastmod>2026-05-07T00:00:00+13:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-bolg/categories/%E8%87%AA%E5%BB%BA%E6%9C%8D%E5%8A%A1/</loc>
+    <lastmod>2026-05-07T00:00:00+13:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-bolg/tags/cloudflare/</loc>
+    <lastmod>2026-04-28T08:30:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-bolg/posts/edt/</loc>
+    <lastmod>2026-04-28T08:30:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-bolg/tags/edt/</loc>
+    <lastmod>2026-04-28T08:30:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/my-bolg/tags/%E5%AF%BC%E8%88%AA/</loc>
     <lastmod>2026-04-28T08:30:00+08:00</lastmod>
@@ -144,9 +165,6 @@
     <loc>http://localhost:1313/my-bolg/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/</loc>
     <lastmod>2026-04-13T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/my-bolg/categories/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2026-04-13T00:00:00+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/my-bolg/tags/%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2026-04-13T00:00:00+08:00</lastmod>
   </url><url>
@@ -156,22 +174,10 @@
     <loc>http://localhost:1313/my-bolg/tags/%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2026-04-13T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/my-bolg/tags/cloudflare-pages/</loc>
-    <lastmod>2026-04-13T00:00:00+13:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/my-bolg/posts/libretv-deploy-guide/</loc>
     <lastmod>2026-04-13T00:00:00+13:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/my-bolg/tags/libretv/</loc>
-    <lastmod>2026-04-13T00:00:00+13:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/my-bolg/tags/%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2/</loc>
-    <lastmod>2026-04-13T00:00:00+13:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/my-bolg/tags/%E5%BD%B1%E8%A7%86%E8%81%9A%E5%90%88/</loc>
-    <lastmod>2026-04-13T00:00:00+13:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/my-bolg/categories/%E8%87%AA%E5%BB%BA%E6%9C%8D%E5%8A%A1/</loc>
     <lastmod>2026-04-13T00:00:00+13:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/my-bolg/posts/xiangce/</loc>

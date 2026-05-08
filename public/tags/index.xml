@@ -6,8 +6,36 @@
     <description>Recent content in Tags on 博客主页</description>
     <generator>Hugo</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 28 Apr 2026 08:30:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2026 00:00:00 +1300</lastBuildDate>
     <atom:link href="http://localhost:1313/my-bolg/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloudflare Pages</title>
+      <link>http://localhost:1313/my-bolg/tags/cloudflare-pages/</link>
+      <pubDate>Thu, 07 May 2026 00:00:00 +1300</pubDate>
+      <guid>http://localhost:1313/my-bolg/tags/cloudflare-pages/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MoonTV</title>
+      <link>http://localhost:1313/my-bolg/tags/moontv/</link>
+      <pubDate>Thu, 07 May 2026 00:00:00 +1300</pubDate>
+      <guid>http://localhost:1313/my-bolg/tags/moontv/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>免费部署</title>
+      <link>http://localhost:1313/my-bolg/tags/%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Thu, 07 May 2026 00:00:00 +1300</pubDate>
+      <guid>http://localhost:1313/my-bolg/tags/%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>影视聚合</title>
+      <link>http://localhost:1313/my-bolg/tags/%E5%BD%B1%E8%A7%86%E8%81%9A%E5%90%88/</link>
+      <pubDate>Thu, 07 May 2026 00:00:00 +1300</pubDate>
+      <guid>http://localhost:1313/my-bolg/tags/%E5%BD%B1%E8%A7%86%E8%81%9A%E5%90%88/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Cloudflare</title>
       <link>http://localhost:1313/my-bolg/tags/cloudflare/</link>
@@ -163,31 +191,10 @@
       <description></description>
     </item>
     <item>
-      <title>Cloudflare Pages</title>
-      <link>http://localhost:1313/my-bolg/tags/cloudflare-pages/</link>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 +1300</pubDate>
-      <guid>http://localhost:1313/my-bolg/tags/cloudflare-pages/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>LibreTV</title>
       <link>http://localhost:1313/my-bolg/tags/libretv/</link>
       <pubDate>Mon, 13 Apr 2026 00:00:00 +1300</pubDate>
       <guid>http://localhost:1313/my-bolg/tags/libretv/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>免费部署</title>
-      <link>http://localhost:1313/my-bolg/tags/%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2/</link>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 +1300</pubDate>
-      <guid>http://localhost:1313/my-bolg/tags/%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>影视聚合</title>
-      <link>http://localhost:1313/my-bolg/tags/%E5%BD%B1%E8%A7%86%E8%81%9A%E5%90%88/</link>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 +1300</pubDate>
-      <guid>http://localhost:1313/my-bolg/tags/%E5%BD%B1%E8%A7%86%E8%81%9A%E5%90%88/</guid>
       <description></description>
     </item>
     <item>

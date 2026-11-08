@@ -3,13 +3,13 @@ title: "CAD 插件制作：从一条命令到可交付的产品"
 date: 2026-11-08T16:40:00+08:00
 draft: false
 tags: ["CAD", "AutoCAD", "插件开发", "C#"]
-categories: ["技术分享"]
+categories: ["技术"]
 description: "系统梳理 CAD 插件的制作方法：平台扩展能力对比、技术选型、AutoCAD .NET 与 LISP 实战、对象模型与事务、界面集成、Bundle 打包自动加载、多版本兼容与发布流程。"
 ---
 
 ## 🎯 为什么值得做 CAD 插件
 
-CAD 是典型的「高频重复 + 强专业规则」场景：画图的人每天在同样的图层、同样的标注样式、同样的图框里做同样的事。一件在图纸上要花二十分钟的活，写成插件后往往是一行命令、三秒钟。
+CAD 是典型的「高频重复 + 强专业规则」场景：画图的人每天在同样的图层、同样的标注样式、同样的图框里做同样的事。一件在图纸上要反复点二十分钟的活，写成插件后常常只剩一条命令。
 
 插件真正解决的从来不是「画得快一点」，而是三件事：
 
@@ -33,7 +33,7 @@ CAD 是典型的「高频重复 + 强专业规则」场景：画图的人每天�
 | FreeCAD | Python 工作台（Workbench） | Python | 低 | 开源、跨平台、二次开发学习 |
 | SketchUp | Ruby API | Ruby | 低 | 室内、方案表达 |
 
-一个实用判断：**如果用户主要用 AutoCAD 系，从 .NET 起步；如果是自己学习插件原理，从 FreeCAD 的 Python 工作台或 AutoCAD 的 LISP 起步最快。**
+一个实用判断：**学习阶段**从 FreeCAD 的 Python 工作台或 AutoCAD 的 LISP 入门最快，能立刻看到结果；**做产品**则从 .NET 起步。这两条路的先后顺序，下一节末尾会给出明确答案。
 
 ## 🔧 技术选型：四条路线的取舍
 
@@ -43,21 +43,34 @@ CAD 是典型的「高频重复 + 强专业规则」场景：画图的人每天�
 
 ```lisp
 ;; 批量把选中对象移到指定图层
-(defun c:MoveToLayer ( / lay ss i ent)
+(defun c:MoveToLayer ( / lay ss i ent elist n)
   (setq lay (getstring "\n目标图层名: "))
+  (if (= lay "")
+    (progn (princ "\n未输入图层名，已取消") (exit))
+  )
+  ;; 图层不存在则新建；已存在但被锁定则先解锁，否则 entmod 会静默失败
   (if (not (tblsearch "LAYER" lay))
     (command "_.-LAYER" "_M" lay "")
+    (if (= 4 (logand 4 (cdr (assoc 70 (tblsearch "LAYER" lay)))))
+      (command "_.-LAYER" "_U" lay "")
+    )
   )
   (setq ss (ssget))
   (if ss
     (progn
-      (setq i 0)
+      (setq i 0 n 0)
+      (command "_.UNDO" "_BE")          ; 整批操作合并成一次撤销
       (repeat (sslength ss)
         (setq ent (ssname ss i))
-        (entmod (append (entget ent) (list (cons 8 lay))))
+        (setq elist (entget ent))
+        ;; 用 subst 替换已有的组码 8，而不是 append 一个新组码
+        (if (entmod (subst (cons 8 lay) (assoc 8 elist) elist))
+          (setq n (1+ n))
+        )
         (setq i (1+ i))
       )
-      (princ (strcat "\n已处理 " (itoa (sslength ss)) " 个对象"))
+      (command "_.UNDO" "_E")
+      (princ (strcat "\n已处理 " (itoa n) "/" (itoa (sslength ss)) " 个对象"))
     )
   )
   (princ)
@@ -68,7 +81,7 @@ CAD 是典型的「高频重复 + 强专业规则」场景：画图的人每天�
 
 ### .NET（C#）：性价比最高
 
-AutoCAD 从 2006 起提供托管 API，用 C# 写业务逻辑，能调 `AcDb`/`AcAp` 全套对象模型，也能用 WinForms/WPF 做界面。**绝大多数商业化插件走这条路。**
+AutoCAD 从 2006 年起提供托管 API，用 C# 就能调用完整的对象模型（`Autodesk.AutoCAD.DatabaseServices` 负责图形数据库，`Autodesk.AutoCAD.ApplicationServices` 负责文档与编辑器），也能用 WinForms/WPF 做界面。**多数商业化插件走这条路。**
 
 ### ObjectARX（C++）：只有它能做的事才用
 
@@ -85,14 +98,15 @@ VBA 已被官方逐步停止支持，仅用于维护老项目。跨进程 COM �
 ### 环境准备
 
 - Visual Studio 2022（社区版够用）
-- .NET Framework 4.8（AutoCAD 2021+ 支持 .NET 8，但仍推荐 4.8 兼容更多版本）
+- .NET Framework 4.8：AutoCAD 2021–2024 使用它；AutoCAD 2025 起已迁移到 .NET 8，面向 2025/2026 的项目需改用 .NET 8 目标框架
 - AutoCAD 主程序（调试时会被启动）
-- 引用两个程序集，来自 CAD 安装目录：
+- 引用 CAD 安装目录下的四个程序集：
   - `accoremgd.dll`（核心对象模型）
   - `acdbmgd.dll`（图形数据库）
   - `acmgd.dll`（应用层、编辑器）
+  - `AdWindows.dll`（Ribbon 界面，只做界面时才需要）
 
-这三个 DLL **必须设置 `Copy Local = False`**，否则会和 CAD 自带的版本冲突。
+这几个 DLL **必须设置 `Copy Local = False`**，否则会和 CAD 自带的版本冲突。
 
 ### 项目结构
 
@@ -136,7 +150,7 @@ namespace CadPlugin.Commands
             using (Transaction tr = doc.TransactionManager.StartTransaction())
             {
                 Entity ent = tr.GetObject(per.ObjectId, OpenMode.ForRead) as Entity;
-                if (ent == null) return;
+                if (ent == null) { tr.Abort(); return; }   // 读不到就显式放弃事务
 
                 ed.WriteMessage($"\n类型: {ent.GetType().Name}, 图层: {ent.Layer}");
 
@@ -150,15 +164,17 @@ namespace CadPlugin.Commands
 }
 ```
 
-生成后得到一个 `CadPlugin.dll`，在 CAD 里 `NETLOAD` 加载，然后命令行输入 `HELLOCAD` 即可运行。
+生成后得到一个 `CadPlugin.dll`，在 CAD 里 `NETLOAD` 加载，然后命令行输入 `HELLOCAD` 即可运行。如果项目引用了第三方库（如 `Newtonsoft.Json`），这些 DLL 也要一并放到输出目录，否则会抛 `FileNotFoundException`。
 
 ### 调试配置
 
-项目属性 → 调试 → 启动外部程序，指向 `acad.exe`，工作目录设为 CAD 安装目录。启动后在 VS 里点「附加到进程」，或直接在 `NETLOAD` 后命中断点。命令行参数建议加上 `/nologo` 加快启动。
+项目属性 → 调试 → 启动外部程序，指向 `acad.exe`，工作目录设为 CAD 安装目录，命令行参数加上 `/nologo` 加快启动。配好之后直接按 F5，VS 会拉起 CAD 并在断点处停下。
+
+另一种场景是 CAD 已经在运行：此时用「调试 → 附加到进程」选中 `acad.exe`，再回到 CAD 里 `NETLOAD` 加载刚编译的 DLL。两条路选一条即可，不要混用。
 
 ## 📐 必懂的核心概念：事务与对象模型
 
-新手 90% 的崩溃和「取不到值」都出在下面这几个点上。
+新手遇到的崩溃和「取不到值」，绝大多数都出在下面这几个点上。
 
 ### 一切修改都在 Transaction 里
 
@@ -183,7 +199,7 @@ using (Transaction tr = db.TransactionManager.StartTransaction())
 
 ### ObjectId 与 DBObject 的区别
 
-- `ObjectId` 是轻量的句柄，可长期持有、可跨事务传递（推荐）。
+- `ObjectId` 是当前图形数据库内的对象标识，轻量、可跨事务传递，适合在函数之间传（推荐）。注意它只在本图形、本次会话内有效，不要当持久句柄存起来——要跨会话标识对象请用 `Handle`。
 - `DBObject` 是实体本身，只在事务打开期间有效，事务结束后使用它会抛异常。
 
 **函数尽量传 `ObjectId`，不要传 `DBObject`。**
@@ -211,35 +227,74 @@ using (DocumentLock dl = targetDoc.LockDocument())
 
 ## 🎨 界面集成：让插件看起来像原生的
 
-### Ribbon 按钮
+界面代码挂在统一入口类上：`IExtensionApplication` 是 AutoCAD 加载 DLL 时调用的钩子，`Initialize()` 做一次性初始化，`Terminate()` 做清理。
 
 ```csharp
-using Autodesk.Windows;   // 注意：这是 acmgd 里的 Ribbon 命名空间
+using System;
+using Autodesk.AutoCAD.ApplicationServices;
+using Autodesk.AutoCAD.Runtime;
 
-public void AddRibbon()
+[assembly: ExtensionApplication(typeof(CadPlugin.PluginEntry))]
+
+namespace CadPlugin
 {
-    RibbonControl rc = ComponentManager.Ribbon;
-    RibbonTab tab = new RibbonTab { Title = "我的工具", Id = "MY_TAB" };
-    RibbonPanel panel = new RibbonPanel();
-    RibbonPanelSource src = new RibbonPanelSource { Title = "标注" };
-
-    RibbonButton btn = new RibbonButton
+    public class PluginEntry : IExtensionApplication
     {
-        Text = "一键标注",
-        ShowText = true,
-        Size = RibbonItemSize.Large,
-        CommandHandler = new MyHandler(),
-        CommandParameter = "DIMALL"
-    };
+        public void Initialize()
+        {
+            // 只挂一次；Ribbon 要等界面就绪，所以推迟到 Idle 里做
+            Application.Idle += OnIdle;
+        }
 
-    src.Items.Add(btn);
-    panel.Source = src;
-    tab.Panels.Add(panel);
-    rc.Tabs.Add(tab);
+        public void Terminate()
+        {
+            Application.Idle -= OnIdle;
+        }
+
+        private void OnIdle(object sender, EventArgs e)
+        {
+            // 加完立刻解绑，避免每次空闲都重复添加
+            Application.Idle -= OnIdle;
+            new RibbonBuilder().AddRibbon();
+        }
+    }
 }
 ```
 
-Ribbon 要在 `IExtensionApplication.Initialize()` 里挂载，并且延迟到 CAD 界面就绪后再加，否则可能拿不到 `ComponentManager.Ribbon`。
+### Ribbon 按钮
+
+```csharp
+using Autodesk.Windows;   // Ribbon 相关类型在这里，需要额外引用 AdWindows.dll
+
+public class RibbonBuilder
+{
+    public void AddRibbon()
+    {
+        RibbonControl rc = ComponentManager.Ribbon;
+        RibbonTab tab = new RibbonTab { Title = "我的工具", Id = "MY_TAB" };
+        RibbonPanel panel = new RibbonPanel();
+        RibbonPanelSource src = new RibbonPanelSource { Title = "标注" };
+
+        RibbonButton btn = new RibbonButton
+        {
+            Text = "一键标注",
+            ShowText = true,
+            Size = RibbonItemSize.Large,
+            CommandHandler = new MyCommandHandler(),
+            CommandParameter = "DIMALL"
+        };
+
+        src.Items.Add(btn);
+        panel.Source = src;
+        tab.Panels.Add(panel);
+        rc.Tabs.Add(tab);
+    }
+}
+```
+
+`MyCommandHandler` 需要自己实现 `System.Windows.Input.ICommand`，在 `Execute` 里用 `doc.SendStringToExecute("DIMALL ", true, false, false)` 把点击转发成命令调用，这样按钮和命令行走的是同一套逻辑。
+
+如果 `ComponentManager.Ribbon` 为 `null`，说明界面还没初始化完，把添加动作继续往后推，不要在 `Initialize()` 里直接加。
 
 ### 非模态面板（PaletteSet）
 
@@ -293,9 +348,9 @@ MyPlugin.bundle/
 
   <CompanyDetails Name="Your Company" Url="https://example.com" Email="hi@example.com" />
 
-  <Components Description="AutoCAD 2021-2026">
+  <Components Description="AutoCAD 2021-2024">
     <RuntimeRequirements OS="Win64" Platform="AutoCAD*"
-                         SeriesMin="R24.0" SeriesMax="R25.1" />
+                         SeriesMin="R24.0" SeriesMax="R24.3" />
     <ComponentEntry AppName="MyPlugin" Version="1.0.0"
                     ModuleName="./Contents/Windows/MyPlugin.dll"
                     AppType=".NET"
@@ -309,12 +364,13 @@ MyPlugin.bundle/
 </ApplicationPackage>
 ```
 
-两个容易踩的点：
+三个容易踩的点：
 
-- `SeriesMin/SeriesMax` 必须覆盖目标 CAD 版本，写死了会导致新版本不加载。
+- `SeriesMin/SeriesMax` 必须覆盖目标 CAD 版本，写死了会导致新版本不加载。这里的 `R24.0`–`R24.3` 对应 AutoCAD 2021–2024。
+- **2025 及以后（`R25.x`）不是同一个二进制**：它们跑在 .NET 8 上，必须单独编译一份 DLL，并在同一个 `PackageContents.xml` 里再加一个 `SeriesMin="R25.0"` 的 `ComponentEntry` 指向它。
 - `Commands` 里的命令名要和代码里的 `[CommandMethod]` 完全一致，否则第一次输入命令会报「未知命令」。
 
-安装脚本只需把 `.bundle` 目录复制到上述路径，卸载时删掉即可，不需要管理员权限（用户级安装）。
+安装脚本只需把 `.bundle` 目录复制到上述路径，卸载时删掉即可。上面用的是用户级目录（`%APPDATA%`），不需要管理员权限；如果要装给所有用户，改放 `%PROGRAMDATA%\Autodesk\ApplicationPlugins\`，这一步需要提权。
 
 ## 🔀 多版本兼容策略
 
@@ -322,7 +378,7 @@ MyPlugin.bundle/
 
 常见做法：
 
-1. **按版本编译多份 DLL**，用 `#if ACAD2020 ... #endif` 或独立 csproj 分支，在 `PackageContents.xml` 里用多个 `ComponentEntry` 按 `SeriesMin/SeriesMax` 分发。
+1. **按版本编译多份 DLL**：在 csproj 里手动定义常量（如 `<DefineConstants>ACAD2024</DefineConstants>`，这个符号不是 SDK 自带的），再用 `#if ACAD2024 ... #endif` 隔离差异代码；然后在 `PackageContents.xml` 里用多个 `ComponentEntry` 按 `SeriesMin/SeriesMax` 分发到不同 DLL。
 2. **反射兜底**：对变化频繁的 API 用反射调用，编译期不绑定。
 3. **最小依赖**：只依赖 `accoremgd/acdbmgd/acmgd` 的稳定子集，避免用内部未公开接口。
 4. **国产 CAD 迁移**：中望、浩辰的 .NET API 与 AutoCAD 高度相似但不完全一致，把命令层单独抽出、用接口隔离，迁移时只重写这一层。
@@ -340,7 +396,7 @@ MyPlugin.bundle/
 | `eLockViolation` | 未锁文档 | `doc.LockDocument()` |
 | `eNotOpenForWrite` | 用 ForRead 就改属性 | `UpgradeOpen()` |
 | 对象保存后消失 | 漏 `AddNewlyCreatedDBObject` | 补上并 `Commit` |
-| 命令重复注册报错 | 多次 NETLOAD 同一 DLL | 用 `[assembly: ExtensionApplication]` 幂等初始化，或重启 CAD |
+| 命令重复注册报错 | 同一个 DLL 被换路径重复加载，命令名冲突 | 保证 `[CommandMethod]` 名称唯一；把注册逻辑放进 `Initialize()` 只执行一次，实在不行重启 CAD |
 | 大图纸卡死 | 全表 ForWrite 打开、循环里反复 `StartTransaction` | 一个事务批量处理，只读用 ForRead |
 | 中文乱码 | 文件编码 / 字体 | 源码 UTF-8，`ed.WriteMessage` 前确认命令行字体 |
 | 卸载后 DLL 被占用 | CAD 未退出，Assembly 被加载 | 属正常现象，提示用户重启 CAD |
@@ -348,7 +404,7 @@ MyPlugin.bundle/
 ### 性能优化的几个杠杆
 
 - 事务合并：一个事务处理 N 个对象，而不是 N 个事务。
-- 关闭屏幕刷新：大批量绘制时 `doc.Editor.UpdateScreen()` 只在最后调一次，或临时 `Application.SetSystemVariable("REGENMODE", 0)`。
+- 减少重绘：`REGENMODE=0` 可以关掉自动重生成；批量绘制结束后再统一调一次 `doc.Editor.UpdateScreen()` 把结果刷出来，而不是每加一个对象就刷一次。
 - 避免 `SelectAll` 后遍历全库：用过滤器 `SelectionFilter` 在 CAD 侧就筛掉不需要的对象。
 - 字符串拼接用 `StringBuilder`，命令回显不要每个对象打一行。
 

@@ -1,0 +1,17 @@
+# Hugo 构建产物（由 GitHub Actions 在部署时生成，不入库）
+public/
+
+# Hugo 资源缓存
+resources/_gen/
+
+# 构建锁文件
+.hugo_build.lock
+
+# 编辑器与系统文件
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 本地工作环境数据
+.workbuddy/

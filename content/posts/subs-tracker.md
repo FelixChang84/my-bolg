@@ -3,12 +3,13 @@ title: "Cloudflare Pages  – SubsTracker订阅管理与提醒系统"
 date: 2026-04-13T00:00:00+08:00
 draft: false
 author: "零度博客"
-categories: ["免费资源", "工具推荐", "Cloudflare"]
-tags: ["SubsTracker", "Cloudflare Workers", "订阅管理", "Telegram提醒", "KV存储"]
+categories: ["教程"]
+tags: ["SubsTracker", "Cloudflare Workers", "订阅管理", "Telegram"]
 description: "基于Cloudflare Workers的轻量级订阅管理系统，帮助您轻松跟踪各类订阅服务的到期时间，并通过Telegram发送及时提醒。"
+aliases: ["/posts/subs-tracke/"]
 ---
 
-# SubsTracker – 订阅管理与提醒系统（Cloudflare Workers）
+## 📌 项目简介
 
 SubsTracker – 订阅管理与提醒系统是基于 **Cloudflare Workers** 的轻量级订阅管理系统，帮助您轻松跟踪各类订阅服务的到期时间，并通过 Telegram 发送及时提醒。
 

@@ -2,9 +2,11 @@
 title: "Cloudflare 优选资源导航"
 date: 2026-04-28T08:30:00+08:00
 draft: false
-tags: ["EDT", "导航", "优选域名", "Cloudflare"]
-categories: ["职场"]
-description: "Cloudflare 优选资源导航"
+tags: ["EDT", "Cloudflare", "优选域名", "资源导航"]
+categories: ["工具资源"]
+description: "Cloudflare 优选资源导航：官方入口、EDT 项目生态、测速工具、IP 段与学习资料一站汇总。"
+summary: "Cloudflare 优选相关的常用入口、EDT 项目生态、测速工具与 IP 段的汇总清单，持续更新。"
+aliases: ["/posts/edt/"]
 ---
 
 ## 🌐 CF 官方

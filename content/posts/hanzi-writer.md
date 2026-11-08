@@ -3,7 +3,8 @@ title: "✍️ 汉字笔顺动画演示"
 date: 2026-04-16T08:00:00+08:00
 draft: false
 tags: ["JavaScript", "汉字", "动画"]
-categories: ["技术分享"]
+categories: ["技术"]
+description: "用 hanzi-writer 做的汉字笔顺动画演示，支持逐笔播放与交互式书写练习。"
 ---
 
 ## 让汉字动起来

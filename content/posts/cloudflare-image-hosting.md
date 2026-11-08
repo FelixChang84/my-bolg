@@ -6,9 +6,10 @@ author: "零度博客"
 categories: ["教程"]
 tags: ["Cloudflare", "图床", "Telegraph", "Telegram", "免费图床"]
 description: "免费图片托管解决方案，Flickr/imgur 替代品。使用 Cloudflare Pages 和 Telegraph。"
+aliases: ["/posts/tuchuang/"]
 ---
 
-# Cloudflare Pages 搭建免费图床！享受 Telegram 的无限空间
+## 📌 项目简介
 
 **免费图片托管解决方案**，Flickr/imgur 替代品。使用 Cloudflare Pages 和 Telegraph。
 

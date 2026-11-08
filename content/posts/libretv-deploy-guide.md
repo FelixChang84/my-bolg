@@ -1,19 +1,12 @@
 ---
 title: "Cloudflare Pages 免费搭建 LibreTV 在线影视聚合、播放平台！"
-date: 2026-04-13T00:00:00+13:00
+date: 2026-04-13T00:00:00+08:00
 draft: false
 author: "零度博客"
-categories: 
-  - 教程
-  - 自建服务
-tags:
-  - LibreTV
-  - Cloudflare Pages
-  - 影视聚合
-  - 免费部署
+categories: ["教程"]
+tags: ["LibreTV", "Cloudflare Pages", "影视聚合", "免费部署"]
+description: "用 Cloudflare Pages 免费部署 LibreTV 在线影视聚合与播放平台，免服务器、零成本。"
 ---
-
-# Cloudflare Pages 免费搭建 LibreTV 在线影视聚合、播放平台！
 
 ## 📺 项目简介
 

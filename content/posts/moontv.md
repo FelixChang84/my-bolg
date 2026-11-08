@@ -1,19 +1,14 @@
 ---
 title: "Cloudflare + MoonTVPlus：零成本搭建个人影视站终极指南"
-date: 2026-05-07T00:00:00+13:00
+date: 2026-05-07T00:00:00+08:00
 draft: false
-author: "自建服务"
-categories: 
-  - 教程
-  - 自建服务
-tags:
-  - MoonTV
-  - Cloudflare Pages
-  - 影视聚合
-  - 免费部署
+author: "技能加点"
+categories: ["教程"]
+tags: ["MoonTV", "Cloudflare Pages", "影视聚合", "免费部署"]
+description: "Cloudflare + MoonTVPlus 零成本搭建个人影视站：从部署到配置的完整流程。"
 ---
 
-# 🎬 Cloudflare + MoonTVPlus：零成本搭建个人影视站终极指南
+## 📌 项目简介
 
 > 📺 视频预览：
 > <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116389872538913&bvid=BV1DpDSBEErp&cid=37438686916&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>

@@ -31,7 +31,9 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
+          # 固定版本，避免 hugo-version: latest 每次都要请求 releases 接口
+          # （该接口偶发 504 会让整次构建失败），同时保证构建结果可复现
+          hugo-version: '0.160.1'
           extended: true
 
       - name: Setup Pages

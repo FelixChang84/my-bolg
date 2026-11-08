@@ -7,7 +7,7 @@ weight: 1
 
 ## 👋 你好，我是张佳轩
 
-欢迎来到我的个人博客！
+欢迎来到我的个人博客。
 
 ### 💻 关于我
 
@@ -15,14 +15,16 @@ weight: 1
 
 ### 🛠 技术栈
 
-- **静态网站生成器**: Hugo
-- **编辑器**: Visual Studio Code
-- **编程语言**: Python
-- **版本控制**: Git
+- **静态网站生成器**：Hugo
+- **编程语言**：Python、C#、JavaScript
+- **编辑器**：Visual Studio Code
+- **部署**：GitHub Pages、Cloudflare Pages
+- **版本控制**：Git
 
 ### 📝 博客内容
 
 在这里，我会分享：
+
 - 技术学习笔记
 - 项目经验总结
 - 生活感悟
@@ -32,8 +34,8 @@ weight: 1
 
 如果你有任何问题或想法，欢迎通过以下方式联系我：
 
-- GitHub: [@FelixChang84](https://github.com/FelixChang84)
-- 邮箱: felix.chang84@gmail.com
+- GitHub：[@FelixChang84](https://github.com/FelixChang84)
+- 邮箱：felix.chang84@gmail.com
 
 ### 🎯 座右铭
 
@@ -41,4 +43,4 @@ weight: 1
 
 ---
 
-感谢你的访问！希望我的分享能对你有所帮助。
+感谢你的访问，希望我的分享能对你有所帮助。

@@ -9,18 +9,16 @@ weight: 3
 
 这里展示了我正在做或已经完成的项目。
 
----
+## 🌐 个人博客
 
-### 1. 🌐 个人博客
-- **描述**：基于 Hugo 和 Cloudflare Pages 搭建的个人技术博客。
+- **描述**：基于 Hugo 和 Cloudflare Pages 搭建的个人技术博客，源码托管在 GitHub。
 - **链接**：[访问博客](https://jaxon.ccwu.cc/)
-- **技术栈**：Hugo, Coder Theme, Cloudflare Pages
+- **技术栈**：Hugo、Coder 主题、Cloudflare Pages
 
-### 2.  LibreTV 影视站
-- **描述**：基于LibreTV项目 和 Cloudflare Pages 搭建的个人影视站
-- **链接**：[访问影视](https://libre-tv.ccwu.cc/)
-- **技术栈**：静态前端, Serverless 边缘代理, 第三方 API
+## 🎬 LibreTV 影视站
 
----
+- **描述**：基于 LibreTV 项目与 Cloudflare Pages 搭建的个人影视站。
+- **链接**：[访问影视](https://libretv.ccwu.cc/)
+- **技术栈**：静态前端、Serverless 边缘代理、第三方 API
 
-> 如果你有新的项目想要添加，直接在这个文件中复制上面的格式即可！
+<!-- 新增项目：复制上面任一小节的格式，改标题、描述、链接与技术栈即可。 -->

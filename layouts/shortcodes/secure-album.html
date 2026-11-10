@@ -22,7 +22,7 @@
           {{ $ext := lower (path.Ext .Name) }}
           {{ if or (eq $ext ".jpg") (eq $ext ".jpeg") (eq $ext ".png") (eq $ext ".gif") (eq $ext ".webp") (eq $ext ".JPG") (eq $ext ".JPEG") (eq $ext ".PNG") }}
           <div class="masonry-item">
-            <img src="/{{ $path }}/{{ .Name }}" alt="{{ .Name }}" loading="lazy" />
+            <img src="{{ printf "%s/%s" $path .Name | relURL }}" alt="{{ .Name }}" loading="lazy" />
             <div class="photo-name">{{ .Name }}</div>
           </div>
           {{ end }}

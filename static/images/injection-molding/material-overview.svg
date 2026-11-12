@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
+  <rect width="800" height="500" fill="#f7f9fc"/>
+  <text x="400" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#1a2b4a">注塑模具资料全景</text>
+  <text x="400" y="66" text-anchor="middle" font-size="13" fill="#6b7a90">13 份资料 · 四大类 · 服务于 DFM 分析与成本报价</text>
+
+  <!-- 注塑机参数 -->
+  <rect x="40" y="95" width="340" height="180" rx="12" fill="#ffffff" stroke="#e3e9f2"/>
+  <rect x="40" y="95" width="340" height="40" rx="12" fill="#3b6fe0"/>
+  <rect x="40" y="123" width="340" height="12" fill="#3b6fe0"/>
+  <text x="210" y="121" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">注塑机技术参数（5 份 PDF）</text>
+  <text x="62" y="165" font-size="13" fill="#33455e">• 海天 MA 多组份（转盘式）</text>
+  <text x="62" y="190" font-size="13" fill="#33455e">• 天合 IA2 多组份（转轴/夹层）</text>
+  <text x="62" y="215" font-size="13" fill="#33455e">• 海天 HTF-X 单色（58T~4000T）</text>
+  <text x="62" y="240" font-size="13" fill="#33455e">• MAIII/SE 伺服节能、MAV 伺服</text>
+  <text x="62" y="263" font-size="12" fill="#8a97a8">→ 选机台：锁模力 / 注射容量 / 模厚 / 拉杆间距</text>
+
+  <!-- 材料手册 -->
+  <rect x="420" y="95" width="340" height="180" rx="12" fill="#ffffff" stroke="#e3e9f2"/>
+  <rect x="420" y="95" width="340" height="40" rx="12" fill="#e0773b"/>
+  <rect x="420" y="123" width="340" height="12" fill="#e0773b"/>
+  <text x="590" y="121" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">塑胶材料特性大全（DOC）</text>
+  <text x="442" y="165" font-size="13" fill="#33455e">• 13 大类：ABS / PE / PP / PA66 / POM…</text>
+  <text x="442" y="190" font-size="13" fill="#33455e">• 每类含：优缺点 / 收缩率 / 壁厚</text>
+  <text x="442" y="215" font-size="13" fill="#33455e">• 加强筋 / 脱模角 / 应用 / 牌号</text>
+  <text x="442" y="240" font-size="13" fill="#33455e">• 经验性资料，非权威 TDS</text>
+  <text x="442" y="263" font-size="12" fill="#8a97a8">→ DFM 最核心的材料数据库（含多处错误）</text>
+
+  <!-- 标准件目录 -->
+  <rect x="40" y="305" width="340" height="165" rx="12" fill="#ffffff" stroke="#e3e9f2"/>
+  <rect x="40" y="305" width="340" height="40" rx="12" fill="#2fa46a"/>
+  <rect x="40" y="333" width="340" height="12" fill="#2fa46a"/>
+  <text x="210" y="331" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">模具标准件目录（扫描版）</text>
+  <text x="62" y="375" font-size="13" fill="#33455e">• 大通塑胶模具零件目录书（168MB）</text>
+  <text x="62" y="400" font-size="13" fill="#33455e">• 燕秀模具标准件目录（70MB）</text>
+  <text x="62" y="425" font-size="13" fill="#33455e">• 燕秀模胚加工规范</text>
+  <text x="62" y="450" font-size="12" fill="#c0392b">⚠ 扫描版 / 损坏，文字无法直接提取</text>
+
+  <!-- CAD 图纸 -->
+  <rect x="420" y="305" width="340" height="165" rx="12" fill="#ffffff" stroke="#e3e9f2"/>
+  <rect x="420" y="305" width="340" height="40" rx="12" fill="#8e5bd6"/>
+  <rect x="420" y="333" width="340" height="12" fill="#8e5bd6"/>
+  <text x="590" y="331" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">CAD 图纸与三维（DWG / PRT）</text>
+  <text x="442" y="375" font-size="13" fill="#33455e">• 齿轮参数计算、南方模具设计标准</text>
+  <text x="442" y="400" font-size="13" fill="#33455e">• 脱螺纹大全、来福线绞牙翻盖</text>
+  <text x="442" y="425" font-size="13" fill="#33455e">• 1 出 32 穴热流道螺牙、多套 .prt</text>
+  <text x="442" y="450" font-size="12" fill="#c0392b">⚠ AutoCAD 2004 二进制，需 CAD 软件打开</text>
+</svg>
